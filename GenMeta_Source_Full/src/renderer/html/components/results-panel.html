@@ -1,0 +1,55 @@
+<!-- Results Panel Component -->
+<div class="panel">
+  <!-- Results Summary -->
+  <div id="results-summary" class="summary-cards hidden">
+    <div class="summary-stats">
+      <div class="summary-card">
+        <span class="summary-label">Total</span>
+        <span id="total-count" class="summary-value">0</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Successful</span>
+        <span id="success-count" class="summary-value">0</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-label">Failed</span>
+        <span id="failed-count" class="summary-value">0</span>
+      </div>
+    </div>
+
+    <!-- Output Directory Actions -->
+    <div class="output-dir-container">
+      <div class="button-group primary-actions">
+        <button id="save-all-btn" class="btn primary save-all-btn hidden" disabled>
+          <i class="fas fa-save"></i>
+          Save All Changes
+        </button>
+      </div>
+
+      <div class="button-group secondary-actions">
+        <button id="export-csv-btn" class="btn secondary hidden" title="Export all metadata to CSV file">
+          <i class="fas fa-file-export"></i>
+          Export CSV
+        </button>
+        <button id="common-keyword-btn" class="btn secondary hidden" title="Bulk edit metadata across all images">
+          <i class="fas fa-edit"></i>
+          Bulk Edit
+        </button>
+        <button id="rename-files-btn" class="btn secondary hidden" title="Rename files based on title or description">
+          <i class="fas fa-file-signature"></i>
+          Rename Files
+        </button>
+      </div>
+
+      <span id="output-dir" class="output-path">-</span>
+    </div>
+  </div>
+
+  <!-- Results List -->
+  <div id="results-list" class="results-list"></div>
+
+  <!-- No Results Message -->
+  <div id="no-results" class="no-results hidden">
+    No results found. All files may have failed to process.
+  </div>
+</div>

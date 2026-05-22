@@ -1,0 +1,49 @@
+<!-- Rename Files Dialog Modal -->
+<div class="dialog-overlay" id="rename-files-dialog">
+  <div class="dialog" style="width: 470px; max-width: 95%">
+    <!-- Dialog Header -->
+    <div class="dialog-header">
+      <div class="dialog-title">Rename Files</div>
+      <button class="dialog-close" id="close-rename-dialog">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Dialog Body -->
+    <div class="dialog-body">
+      <p>Choose how you want to rename your files:</p>
+
+      <form id="rename-files-form">
+        <div class="form-group">
+          <label>Rename based on:</label>
+          <div class="radio-group">
+            <label class="radio">
+              <input type="radio" name="rename-type" value="title" checked />
+              <span>Title</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="rename-type" value="description" />
+              <span>Description</span>
+            </label>
+          </div>
+          <small class="form-hint">Files will be renamed using this metadata field</small>
+        </div>
+
+        <div class="form-group">
+          <label class="toggle">
+            <input type="checkbox" id="rename-add-prefix" />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Add numeric prefix (01_, 02_, etc.)</span>
+          </label>
+          <small class="form-hint">Helps maintain file order</small>
+        </div>
+      </form>
+    </div>
+
+    <!-- Dialog Footer -->
+    <div class="dialog-footer">
+      <button class="btn secondary" id="cancel-rename">Cancel</button>
+      <button class="btn primary" id="apply-rename">Rename Files</button>
+    </div>
+  </div>
+</div>

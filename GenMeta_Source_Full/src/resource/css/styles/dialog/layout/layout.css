@@ -1,0 +1,108 @@
+/* Dialog Layout
+ * Header, body, footer, and container layouts
+ */
+
+/* Dialog Header */
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dialog-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dialog-close {
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* Dialog Body */
+.dialog-body {
+  padding: calc(var(--spacing-unit) * 2);
+  overflow-y: auto;
+}
+
+/* Help Dialog Body */
+.help-dialog .dialog-body {
+  max-height: calc(80vh - 120px);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.help-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.help-section {
+  margin-bottom: 10px;
+}
+
+.help-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.help-section p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.help-section ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.help-section li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.help-section strong {
+  color: var(--text-light);
+}
+
+.help-steps,
+.help-list {
+  padding-left: 20px;
+  margin: 10px 0 20px 0;
+}
+
+.help-steps li,
+.help-list li {
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Dialog Footer */
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px;
+  background-color: var(--sidebar-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Settings Container */
+.settings-container {
+  display: flex;
+  height: calc(100% - 110px);
+  padding: 0;
+  overflow: hidden;
+}

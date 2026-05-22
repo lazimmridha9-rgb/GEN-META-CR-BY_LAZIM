@@ -1,0 +1,71 @@
+/* ============================================
+   Update Check Popup
+   ============================================ */
+
+.update-check-popup {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+  width: 300px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  z-index: 1000;
+  border: 1px solid var(--border-color);
+  display: none;
+}
+
+.update-check-popup.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Header */
+.update-check-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.update-check-popup-title {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.update-check-popup-close {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Content & Footer */
+.update-check-popup-content {
+  margin-bottom: 15px;
+}
+
+.update-check-popup-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Status */
+.update-check-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.update-check-status .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--text-light);
+  animation: spin 1s linear infinite;
+}

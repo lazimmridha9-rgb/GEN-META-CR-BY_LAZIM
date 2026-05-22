@@ -1,0 +1,111 @@
+/* Dialog Utilities
+ * Output path, settings groups, form hints, keyword tags
+ */
+
+/* Output Path */
+.output-path {
+  flex: 1 1 100%;
+  margin-top: 5px;
+  font-size: 0.9em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+/* Settings Option Group */
+.settings-option-group {
+  margin-top: 12px;
+  padding-left: 10px;
+  border-left: 3px solid var(--border-color);
+}
+
+.settings-option-title {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
+
+/* Form Hint */
+.form-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85em;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Keyword Tags */
+.keyword-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 40px;
+  padding: 5px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.keyword-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.keyword-tag-text {
+  margin-right: 8px;
+}
+
+.keyword-tag-remove {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Keyword Tag Info */
+.keyword-tag-info {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.keyword-tag-info i {
+  margin-right: 3px;
+}
+
+.keyword-tag-info .file-types {
+  margin-left: 5px;
+  padding: 2px 5px;
+  font-size: 10px;
+  background: var(--input-bg);
+  border-radius: 3px;
+}
+
+.keyword-tag-toggle:hover {
+  color: var(--text-light);
+}
+
+/* Settings Subsection Title */
+.settings-subsection-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-size: 1em;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
