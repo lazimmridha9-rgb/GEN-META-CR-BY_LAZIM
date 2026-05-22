@@ -1,0 +1,120 @@
+/* File Preview Section */
+
+/* Section Container */
+.file-preview-section {
+  margin-top: 16px;
+}
+
+/* Preview Header */
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.preview-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Preview Grid */
+.file-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Preview Item */
+.file-preview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.file-preview-item:hover {
+  background: var(--input-bg);
+  border-color: var(--primary-color);
+}
+
+/* Thumbnail & Placeholder */
+.file-preview-thumbnail {
+  width: 100%;
+  height: 55px;
+  margin-bottom: 6px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.file-preview-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  margin-bottom: 6px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.file-preview-placeholder i {
+  font-size: 24px;
+  color: var(--text-secondary);
+}
+
+/* File Name */
+.file-preview-name {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* More Files Indicator */
+.more-files-indicator {
+  padding: 8px;
+  font-size: 12px;
+  text-align: center;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-secondary);
+}
+
+/* Folder Preview */
+.folder-preview-item {
+  background: var(--input-bg);
+  border: 2px dashed var(--border-color);
+}
+
+.folder-preview-item:hover {
+  background: var(--card-bg);
+  border-color: var(--primary-color);
+}
+
+.folder-preview-item .file-preview-placeholder {
+  background: transparent;
+  border: none;
+}
+
+.folder-preview-item .file-preview-placeholder i {
+  font-size: 28px;
+  color: var(--primary-color);
+}

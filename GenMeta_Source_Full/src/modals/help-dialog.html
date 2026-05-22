@@ -1,0 +1,118 @@
+<!-- Help Dialog Modal -->
+<div class="dialog-overlay" id="help-dialog">
+  <div class="dialog help-dialog">
+    <!-- Dialog Header -->
+    <div class="dialog-header">
+      <div class="dialog-title">GenMeta Help</div>
+      <button class="dialog-close" id="close-help-dialog">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Dialog Body -->
+    <div class="dialog-body">
+      <div class="help-content">
+        <!-- About Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-info-circle"></i>
+            About GenMeta
+          </h3>
+          <p>GenMeta is a desktop application that uses AI to generate metadata for your images and videos. This tool automatically creates titles, descriptions, and keywords for your media files, making them more discoverable and SEO-friendly.</p>
+          <p><strong>Supported formats:</strong> JPG, PNG, EPS (images) and MP4, MOV. For videos, metadata is saved as external JSON and TXT files alongside the video.</p>
+        </div>
+
+        <!-- Getting Started Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-folder-open"></i>
+            Getting Started
+          </h3>
+          <ul>
+            <li><strong>Select Files</strong> - Choose individual image or video files to process</li>
+            <li><strong>Select Folder</strong> - Choose a folder containing multiple media files</li>
+            <li><strong>Generate</strong> - Process the selected media files to create metadata</li>
+            <li><strong>Stop</strong> - Cancel the current processing operation</li>
+            <li><strong>Clear</strong> - Reset the application and clear all results</li>
+          </ul>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-cog"></i>
+            Settings
+          </h3>
+          <ul>
+            <li><strong>API Configuration</strong> - Set up your Gemini API key for image processing</li>
+            <li><strong>AI Parameters</strong> - Customize title length, description length, keyword count, and add positive/negative keywords</li>
+            <li><strong>System Configuration</strong> - Adjust system-level settings</li>
+            <li><strong>File Options</strong> - Configure file handling options like creating JPG copies of EPS files</li>
+          </ul>
+        </div>
+
+        <!-- Working with Results Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-save"></i>
+            Working with Results
+          </h3>
+          <ul>
+            <li><strong>Save All Changes</strong> - Apply all metadata changes to the original image files</li>
+            <li><strong>Export CSV</strong> - Export all metadata to a CSV file</li>
+            <li><strong>Bulk Edit</strong> - Edit metadata across all processed images at once</li>
+            <li><strong>Rename Files</strong> - Rename files based on their title or description</li>
+            <li><strong>Retry Failed</strong> - Retry processing for any failed images</li>
+            <li>Click on individual result cards to view and edit metadata before saving</li>
+          </ul>
+        </div>
+
+        <!-- Bulk Edit Features Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-edit"></i>
+            Bulk Edit Features
+          </h3>
+          <ul>
+            <li><strong>Keywords</strong> - Add common keywords to all images at the start, end, or custom position</li>
+            <li><strong>Title</strong> - Insert or replace text in all titles, or update titles from descriptions</li>
+            <li><strong>Description</strong> - Insert or replace text in all descriptions, or update descriptions from titles</li>
+          </ul>
+        </div>
+
+        <!-- Updates Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-arrows-rotate"></i>
+            Updates
+          </h3>
+          <ul>
+            <li><strong>Check Updates</strong> - Manually check for application updates</li>
+            <li><strong>Download Update</strong> - Download a new version when available</li>
+            <li><strong>Install Update</strong> - Install a downloaded update (application will restart)</li>
+          </ul>
+          <p><strong>Note:</strong> When you click "Install Update", the button will be disabled and show "Preparing for install..." while the update is being prepared. The application will restart automatically to complete the installation.</p>
+        </div>
+
+        <!-- Premium Features Section -->
+        <div class="help-section">
+          <h3>
+            <i class="fas fa-crown"></i>
+            Premium Features
+          </h3>
+          <ul>
+            <li>Process unlimited images in a single batch</li>
+            <li>Use your own Gemini API key for customized results</li>
+            <li>Support for JPG, PNG, and EPS image formats</li>
+            <li>All Premium features are unlocked</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialog Footer -->
+    <div class="dialog-footer">
+      <button class="btn primary" id="close-help-btn">Close</button>
+    </div>
+  </div>
+</div>

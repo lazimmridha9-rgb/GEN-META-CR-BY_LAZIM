@@ -1,0 +1,116 @@
+/* Top Navbar */
+
+/* Navbar Container */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 calc(var(--spacing-unit) * 2);
+  background-color: var(--navbar-bg);
+  -webkit-app-region: drag;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Directory Selection */
+.directory-selection {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1.5);
+  margin-right: calc(var(--spacing-unit) * 3);
+  -webkit-app-region: no-drag;
+}
+
+#image-count {
+  display: flex;
+  align-items: center;
+}
+
+/* Path Display */
+.path-display {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  max-width: 250px;
+  height: 32px;
+  padding: 0 calc(var(--spacing-unit) * 1.5);
+  overflow: hidden;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+/* Navbar Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1.5);
+  -webkit-app-region: no-drag;
+}
+
+.navbar-btn {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  height: 32px;
+  font-weight: 500;
+}
+
+/* Regenerate Buttons */
+.regenerate-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.regenerate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.regenerate-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.regenerate-btn i {
+  margin-right: 4px;
+}
+
+/* Path Selection (Legacy) */
+.path-selection {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.path-selection .path-display {
+  flex: 1;
+  padding: calc(var(--spacing-unit) * 1);
+  overflow: hidden;
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: var(--window-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}

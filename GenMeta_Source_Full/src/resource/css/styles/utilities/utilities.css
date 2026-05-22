@@ -1,0 +1,63 @@
+/* Utility Classes */
+
+/* Visibility */
+.hidden {
+  display: none !important;
+}
+
+/* Text Utilities */
+.text-muted {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.text-success {
+  color: var(--success-color);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+/* Status Colors */
+.status-active {
+  font-weight: 500;
+  color: #3beb95;
+}
+
+.status-warning {
+  font-weight: 500;
+  color: #ffcc00;
+}
+
+.status-error {
+  font-weight: 500;
+  color: #ff5252;
+}
+
+.status-unknown {
+  font-style: italic;
+  color: #939393;
+}
+
+.status-premium,
+.status-subscription {
+  font-weight: 500;
+  color: #cc80ff;
+}
+
+.status-credit {
+  font-weight: 500;
+  color: #6aacff;
+}
+
+.status-free {
+  font-weight: 500;
+  color: #aaaaaa;
+}
+
+/* Sync Highlight */
+.sync-highlight {
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+}

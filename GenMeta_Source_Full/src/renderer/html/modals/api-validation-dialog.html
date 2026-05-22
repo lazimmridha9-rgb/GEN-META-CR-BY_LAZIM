@@ -1,0 +1,29 @@
+<!-- API Validation Dialog Modal -->
+<div class="dialog-overlay" id="api-validation-dialog">
+  <div class="dialog">
+    <!-- Dialog Header -->
+    <div class="dialog-header">
+      <div class="dialog-title">API Validation Error</div>
+      <button class="dialog-close" id="close-api-validation-dialog">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Dialog Body -->
+    <div class="dialog-body">
+      <div id="api-validation-message">
+        <p>There was an error validating your User ID:</p>
+        <div id="api-validation-error-details" class="error-message"></div>
+      </div>
+    </div>
+
+    <!-- Dialog Footer -->
+    <div class="dialog-footer">
+      <button class="btn secondary" id="close-api-validation-btn">Close</button>
+      <button class="btn primary" id="open-settings-from-validation-btn">
+        <i class="fas fa-cog"></i>
+        Open Settings
+      </button>
+    </div>
+  </div>
+</div>

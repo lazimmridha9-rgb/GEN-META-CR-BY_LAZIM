@@ -1,0 +1,66 @@
+/* Pricing Dialog Base */
+
+/* Dialog Container */
+.pricing-dialog {
+  padding: 0;
+  overflow: hidden;
+  background-color: #222;
+  color: #eee;
+}
+
+/* Dialog Header */
+.pricing-dialog .dialog-header {
+  padding: 12px 16px;
+  background-color: #333;
+  border-bottom: 1px solid #444;
+}
+
+.pricing-dialog .dialog-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.pricing-dialog .dialog-close {
+  padding: 4px;
+  font-size: 14px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.pricing-dialog .dialog-close:hover {
+  color: #fff;
+}
+
+.pricing-dialog .dialog-body {
+  padding: 16px;
+}
+
+/* Pricing Message */
+.pricing-message {
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.pricing-message p {
+  margin: 4px 0;
+}
+
+.pricing-message p:first-child {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Pricing Options */
+.pricing-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 0;
+}

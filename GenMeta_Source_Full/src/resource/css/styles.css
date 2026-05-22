@@ -1,0 +1,49 @@
+/* GenMeta - Main Styles Entry Point
+ * Modular CSS Architecture - All styles organized by concern
+ * Total: ~100 lines (imports only)
+ */
+
+/* 1. Variables & Themes */
+@import url("./styles/variables/variables.css");
+@import url("./styles/themes/dark-light.css");
+
+/* 2. Base Reset & Global */
+@import url("./styles/base/base.css");
+
+/* 3. Animations (keyframes) */
+@import url("./styles/animations/animations.css");
+
+/* 4. Utilities */
+@import url("./styles/utilities/utilities.css");
+@import url("./styles/utilities/scrollbars.css");
+
+/* 5. Components */
+@import url("./styles/components/buttons.css");
+@import url("./styles/components/toggles.css");
+@import url("./styles/components/dropdowns.css");
+@import url("./styles/components/forms.css");
+@import url("./styles/components/progress.css");
+@import url("./styles/components/file-preview.css");
+@import url("./styles/components/drag-drop.css");
+@import url("./styles/components/toast.css");
+@import url("./styles/components/csv-markets.css");
+@import url("./styles/components/docs-panel.css");
+
+/* 6. Dialogs (modular) */
+@import url("./styles/dialog/index.css");
+
+/* 7. Layouts */
+@import url("./styles/layouts/main-layout.css");
+@import url("./styles/layouts/navbar.css");
+@import url("./styles/layouts/status-bar.css");
+
+/* 8. Sections */
+@import url("./styles/sections/summary.css");
+@import url("./styles/sections/results.css");
+@import url("./styles/sections/initial-state.css");
+@import url("./styles/sections/settings.css");
+@import url("./styles/sections/api-keys.css");
+@import url("./styles/sections/ghostscript.css");
+
+/* 9. Responsive */
+@import url("./styles/responsive/responsive.css");

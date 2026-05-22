@@ -1,0 +1,57 @@
+/* Dialog Alert Components
+ * Alert messages, success/error messages
+ */
+
+/* Alert Message */
+.alert-message {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.alert-message.warning {
+  border-left: 4px solid var(--warning-color);
+  background-color: rgba(var(--warning-color-rgb, 243, 156, 18), 0.2);
+}
+
+.alert-message p {
+  margin: 0;
+  color: var(--text-color);
+}
+
+.alert-message i {
+  margin-right: 5px;
+  color: var(--warning-color);
+}
+
+/* Success Message */
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--success-color);
+  border-radius: 4px;
+  background-color: rgba(var(--success-color-rgb, 46, 204, 113), 0.1);
+}
+
+.success-message i {
+  color: var(--success-color);
+}
+
+/* Error Message */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--danger-color);
+  border-radius: 4px;
+  background-color: rgba(var(--danger-color-rgb, 231, 76, 60), 0.1);
+}
+
+.error-message i {
+  color: var(--danger-color);
+}

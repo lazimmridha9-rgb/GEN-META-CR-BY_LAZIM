@@ -1,0 +1,111 @@
+/* ============================================
+   Dialog Utilities
+   Output path, settings groups, form hints, keyword tags
+   ============================================ */
+
+/* Output Path */
+.output-path {
+  flex: 1 1 100%;
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Settings Option Group */
+.settings-option-group {
+  margin-top: 12px;
+  padding-left: 10px;
+  border-left: 3px solid var(--border-color);
+}
+
+.settings-option-title {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+/* Form Hint */
+.form-hint {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.85em;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Keyword Tags */
+.keyword-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 40px;
+  padding: 5px;
+  background: var(--input-bg);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.keyword-tag {
+  display: inline-flex;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: var(--text-color);
+  font-size: 0.9em;
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.keyword-tag-text {
+  margin-right: 8px;
+}
+
+.keyword-tag-remove {
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14px;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.keyword-tag-info {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.keyword-tag-info i {
+  margin-right: 3px;
+}
+
+.keyword-tag-info .file-types {
+  margin-left: 5px;
+  background: var(--input-bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.keyword-tag-toggle:hover {
+  color: var(--text-light);
+}
+
+/* Settings Subsection Title */
+.settings-subsection-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}

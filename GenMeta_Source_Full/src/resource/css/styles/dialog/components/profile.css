@@ -1,0 +1,160 @@
+/* Profile Dropdown Component
+ * Avatar, info, details, plan types, status
+ */
+
+/* Profile Button */
+#profile-btn {
+  display: none;
+}
+
+/* Dropdown Container */
+.profile-dropdown {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: 1000;
+  display: none;
+  width: 220px;
+  overflow: hidden;
+  background-color: var(--dialog-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: profileDropdownSlideDown 0.2s ease-out;
+}
+
+.profile-dropdown.active {
+  display: block;
+}
+
+.profile-dropdown-content {
+  padding: 0;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: var(--primary-color);
+  border-radius: 5px 5px 0 0;
+}
+
+.profile-avatar {
+  margin-right: 12px;
+}
+
+.profile-avatar i {
+  font-size: 20px;
+  color: white;
+}
+
+.profile-info {
+  flex: 1;
+  color: white;
+}
+
+.profile-name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: white;
+}
+
+.profile-email {
+  font-size: 10px;
+  line-height: 1.2;
+  opacity: 0.9;
+  color: white;
+}
+
+/* Profile Divider */
+.profile-divider {
+  height: 1px;
+  margin: 0;
+  background-color: var(--border-color);
+}
+
+/* Profile Details */
+.profile-details {
+  padding: 10px;
+}
+
+.profile-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.profile-detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.profile-detail-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.profile-detail-value {
+  font-size: 10px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--text-color);
+}
+
+/* Plan Type Colors */
+.profile-detail-value.plan-free {
+  color: var(--text-secondary);
+}
+
+.profile-detail-value.plan-credit {
+  color: #6aacff;
+}
+
+.profile-detail-value.plan-subscription {
+  color: #cc80ff;
+}
+
+.profile-detail-value.plan-guest {
+  color: #aaa;
+}
+
+.profile-detail-value.plan-premium {
+  color: #ffd700;
+}
+
+/* Status Colors */
+.profile-detail-value.status-active {
+  color: #3beb95;
+}
+
+.profile-detail-value.status-warning {
+  color: #ffcc00;
+}
+
+.profile-detail-value.status-error {
+  color: #ff5252;
+}
+
+/* Overlay for Click-Outside Dismiss */
+.profile-dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
+}
+
+.profile-dropdown-overlay.active {
+  display: block;
+}
+
+/* Profile Footer */
+.profile-footer {
+  padding: 4px;
+}

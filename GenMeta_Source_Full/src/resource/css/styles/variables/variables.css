@@ -1,0 +1,12 @@
+/* CSS Custom Properties (Variables) */
+
+:root {
+  --primary-color: #0078d7;
+  --primary-hover: #006cc1;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --spacing-unit: 8px;
+  --skeleton-base-color: rgba(255, 255, 255, 0.05);
+  --skeleton-highlight-color: rgba(255, 255, 255, 0.1);
+}

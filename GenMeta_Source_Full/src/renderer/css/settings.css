@@ -1,0 +1,172 @@
+/* ============================================
+   Settings Dialog Layout
+   ============================================ */
+
+.settings-dialog {
+  max-width: 999px;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+  max-height: 90vh;
+}
+
+.settings-container {
+  display: flex;
+  height: calc(100% - 110px);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ============================================
+   Settings Sidebar
+   ============================================ */
+
+.settings-sidebar {
+  width: 200px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.settings-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-menu-item {
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+}
+
+.settings-menu-item i {
+  margin-right: 10px;
+  width: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.settings-menu-item:hover {
+  background-color: var(--card-bg);
+  color: var(--text-light);
+}
+
+.settings-menu-item.active {
+  background-color: var(--card-bg);
+  color: var(--text-light);
+  border-left-color: var(--primary-color);
+}
+
+.settings-menu-item.active i {
+  color: var(--primary-color);
+}
+
+/* ============================================
+   Settings Content
+   ============================================ */
+
+.settings-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.settings-section {
+  display: none;
+  animation: fadeInOpacity 0.3s ease;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 16px;
+}
+
+.settings-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.settings-section.active {
+  display: block;
+}
+
+.settings-section-title {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #ddd;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.settings-section-title i {
+  margin-right: 8px;
+  color: #aaa;
+}
+
+.settings-section-title.has-changes::after {
+  content: "\2022";
+  position: absolute;
+  right: -15px;
+  top: 0;
+  color: #3b82f6;
+  font-size: 20px;
+  animation: pulse 2s infinite;
+}
+
+/* ============================================
+   Custom Prompt Container
+   ============================================ */
+
+#custom-prompt-container {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#custom-prompt-container.show {
+  display: block !important;
+}
+
+/* ============================================
+   Toggle Synced State
+   ============================================ */
+
+.toggle.synced .toggle-slider {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Form Select Synced */
+.form-select.synced {
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* ============================================
+   Settings Dialog Syncing
+   ============================================ */
+
+.settings-dialog.syncing {
+  position: relative;
+}
+
+.settings-dialog.syncing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  animation: syncProgress 1s ease-in-out infinite;
+  z-index: 1;
+}
