@@ -947,6 +947,24 @@ of this software and associated documentation files...
 
 <br/>
 
+<p align="center">
+  <sub>Built with ❤️ for microstock contributors worldwide</sub>
+  <br/>
+  <sub>© 2024 <a href="https://github.com/aminurdev">Aminur Rahman</a></sub>
+</p>
+
+<p align="center">
+  <b>⚡ GenMeta</b> — <i>Intelligent Metadata, Effortlessly Generated</i>
+</p>
+
+<p align="center">
+  <a href="https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM">
+    <img src="https://img.shields.io/badge/%F0%9F%93%81_View_on-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="View on GitHub"/>
+  </a>
+</p>
+
+<br/>
+
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!--                    DEVELOPER CREDIT SECTION                    -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
