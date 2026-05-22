@@ -1,359 +1,394 @@
 
-<p align="center">
-  <img src="GenMeta_Source_Full/src/assets/icon.png" width="100" height="100" alt="GenMeta">
-</p>
-
-<h1 align="center">GenMeta <sup>v6.5.10</sup></h1>
-
-<p align="center">
-  <em>AI-Powered Metadata Generator for Microstock Contributors</em>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Version-6.5.10-00d4aa?style=flat&labelColor=1a1a2e" alt="Version">
-  <img src="https://img.shields.io/badge/License-MIT-ff6b6b?style=flat&labelColor=1a1a2e" alt="License">
-  <img src="https://img.shields.io/badge/Platform-Win%20%7C%20Mac%20%7C%20Linux-58a6ff?style=flat&labelColor=1a1a2e" alt="Platform">
-  <img src="https://img.shields.io/badge/Electron-41.6.1-47848f?style=flat&logo=electron&labelColor=1a1a2e" alt="Electron">
-  <img src="https://img.shields.io/badge/Gemini_AI-1.34.0-8e75f5?style=flat&logo=google&labelColor=1a1a2e" alt="Gemini AI">
-  <img src="https://img.shields.io/badge/Status-Active-2ea44f?style=flat&labelColor=1a1a2e" alt="Status">
-</p>
-
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#how-it-works">How It Works</a> •
-  <a href="#project-structure">Structure</a> •
-  <a href="#tech-stack">Tech Stack</a> •
-  <a href="#faq">FAQ</a> •
-  <a href="#license">License</a>
-</p>
+<div align="center">
+  <img src="GenMeta_Source_Full/src/assets/icon.png" width="120" height="120" alt="GenMeta Logo">
+  <br><br>
+  <h1>GenMeta <sup>v6.5.10</sup></h1>
+  <p><strong>AI-Powered Metadata Engine</strong> — <em>for Microstock Contributors</em></p>
+  <br>
+  <a href="https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM/releases"><img src="https://img.shields.io/github/v/release/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM?style=for-the-badge&logo=github&color=00d4aa&labelColor=1a1a2e" alt="Release"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-6.5.10-7c3aed?style=for-the-badge&labelColor=1a1a2e" alt="Version"></a>
+  <a href="GenMeta_Source_Full/LICENSE"><img src="https://img.shields.io/badge/License-MIT-ff6b6b?style=for-the-badge&labelColor=1a1a2e" alt="License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Platform-Win%20%7C%20Mac%20%7C%20Linux-58a6ff?style=for-the-badge&labelColor=1a1a2e" alt="Platform"></a>
+  <br>
+  <a href="#"><img src="https://img.shields.io/badge/Electron-41.6.1-47848f?style=for-the-badge&logo=electron&logoColor=white&labelColor=1a1a2e" alt="Electron"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Gemini_AI-1.34.0-8e75f5?style=for-the-badge&logo=google&logoColor=white&labelColor=1a1a2e" alt="Gemini AI"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Node.js-%E2%89%A518.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white&labelColor=1a1a2e" alt="Node.js"></a>
+  <br><br>
+  <a href="#features">Features</a> • <a href="#quick-start">Quick Start</a> • <a href="#usage">Usage</a> • <a href="#architecture">Architecture</a> • <a href="#tech-stack">Tech Stack</a> • <a href="#configuration">Configuration</a> • <a href="#faq">FAQ</a> • <a href="#roadmap">Roadmap</a>
+  <br><br>
+</div>
 
 ---
 
-## Overview
+<div align="center">
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/adobe-stock.svg" width="40" height="40" alt="Adobe Stock">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/shutterstock.svg" width="40" height="40" alt="Shutterstock">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/istock.svg" width="40" height="40" alt="iStock">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/pond5.webp" width="40" height="40" alt="Pond5">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/123rf.svg" width="40" height="40" alt="123RF">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/freepik.svg" width="40" height="40" alt="Freepik">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/dreamstime.svg" width="40" height="40" alt="Dreamstime">&nbsp;&nbsp;
+  <img src="GenMeta_Source_Full/src/renderer/assets/icons/general.svg" width="40" height="40" alt="General">
+</div>
 
-**GenMeta** is a desktop application that harnesses **Google Gemini AI** to automatically generate SEO-optimized metadata — titles, descriptions, keywords, and categories — for images and videos. Built specifically for **microstock contributors**, it writes metadata directly into **EXIF / XMP / IPTC** fields and exports platform-ready CSV files.
+<br>
 
-<p align="center">
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/adobe-stock.svg" width="36" height="36" alt="Adobe Stock">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/shutterstock.svg" width="36" height="36" alt="Shutterstock">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/istock.svg" width="36" height="36" alt="iStock">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/pond5.webp" width="36" height="36" alt="Pond5">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/123rf.svg" width="36" height="36" alt="123RF">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/freepik.svg" width="36" height="36" alt="Freepik">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/dreamstime.svg" width="36" height="36" alt="Dreamstime">&nbsp;
-  <img src="GenMeta_Source_Full/src/renderer/assets/icons/general.svg" width="36" height="36" alt="General">
-</p>
-
-> Say goodbye to hours of manual keywording. GenMeta processes hundreds of files in a single batch with intelligent API key rotation and automatic retry logic.
+> **GenMeta** is a desktop application that leverages **Google Gemini AI** to automatically generate SEO-optimized metadata — titles, descriptions, keywords, and categories — for images and videos. Built specifically for microstock contributors, it writes metadata directly into **EXIF / XMP / IPTC** fields and exports platform-ready CSV files — eliminating hours of manual keywording.
 
 ---
 
-## Features
+## ✦ Features
 
 ### AI Engine
 
-| Capability | Details |
-|:-----------|:--------|
-| **Multimodal Analysis** | Gemini AI analyzes image/video content visually — not just filenames |
-| **Supported Models** | `gemini-2.5-flash`, `gemini-2.5-flash-lite`, `gemini-3-flash-preview`, `gemini-3.1-flash-lite-preview` |
+| Capability | Description |
+|:-----------|:------------|
+| **Multimodal Vision** | Gemini AI analyzes image/video content visually — not just filenames |
 | **Smart Prompting** | Adaptive prompts per media type with platform-specific categories |
-| **JSON Validation** | Auto-repairs malformed AI responses before processing |
+| **JSON Auto-Repair** | Automatically validates and repairs malformed AI responses |
+| **Model Flexibility** | Switch between 4 Gemini models based on speed vs quality needs |
+| **Key Rotation** | Distributes requests across multiple API keys to avoid rate limits |
 
-### Metadata Writing
+### Metadata Processing
 
-| Field | Standard | Written Via |
-|:------|:---------|:------------|
+| Field | Standard | Technology |
+|:------|:---------|:-----------|
 | Title | IPTC + XMP | ExifTool |
 | Description | IPTC + XMP + EXIF | ExifTool |
 | Keywords | IPTC + XMP | ExifTool |
 | Categories | Platform-specific | ExifTool + CSV |
 
-### File Support
+### Supported File Types
 
 | Type | Formats |
 |:-----|:--------|
-| Images | JPG, JPEG, PNG, GIF, BMP, WebP |
-| Videos | MP4, MOV, AVI, MKV, WebM |
-| Vector | EPS, SVG (auto-converted via Ghostscript) |
+| **Images** | JPG, JPEG, PNG, GIF, BMP, WebP |
+| **Videos** | MP4, MOV, AVI, MKV, WebM |
+| **Vector** | EPS, SVG (auto-converted via Ghostscript) |
 
 ### Processing Pipeline
 
-- **Batch orchestration** with configurable concurrency (default: 5 parallel requests)
-- **API key rotation** across multiple keys for rate-limit avoidance
-- **Intelligent retry** with exponential backoff
-- **Progress tracking** with real-time UI updates
-- **File renaming** based on AI-generated titles
+- **Batch Orchestration** — configurable concurrency (default: 5 parallel requests)
+- **Intelligent Retry** — exponential backoff with adaptive timeout
+- **Real-Time Progress** — live UI updates with per-file status tracking
+- **File Renaming** — auto-rename assets using AI-generated titles
+- **Temp Cleanup** — automatic removal of processing artifacts
 
-### Export Support
+### Platform Export Matrix
 
 | Platform | CSV | Editorial | Regional Config |
 |:---------|:----|:----------|:----------------|
-| Adobe Stock | Yes | — | — |
-| Shutterstock | Yes | — | — |
-| iStock | Yes | Yes | Artist name |
-| Pond5 | Yes | Yes | — |
-| 123RF | Yes | — | Country code |
-| Freepik | Yes | — | — |
-| Dreamstime | Yes | — | — |
-| Vecteezy | Yes | — | — |
+| Adobe Stock | ✓ | — | — |
+| Shutterstock | ✓ | — | — |
+| iStock | ✓ | ✓ | Artist name |
+| Pond5 | ✓ | ✓ | — |
+| 123RF | ✓ | — | Country code |
+| Freepik | ✓ | — | — |
+| Dreamstime | ✓ | — | — |
+| Vecteezy | ✓ | — | — |
 
 ---
 
-## Installation
+## ✦ Quick Start
 
 ### Prerequisites
 
-| Dependency | Version | Notes |
-|:-----------|:--------|:------|
-| [Node.js](https://nodejs.org) | >= 18.x | Install manually |
-| [ExifTool](https://exiftool.org) | 35.13.1 | Bundled via `exiftool-vendored` |
-| [FFmpeg](https://ffmpeg.org) | 5.2.0 | Bundled via `ffmpeg-static` |
-| [Ghostscript](https://ghostscript.com) | 10.x | Auto-downloaded if missing |
-| [Gemini API Key](https://ai.google.dev/) | — | Get from Google AI Studio |
+| Dependency | Minimum Version | Notes |
+|:-----------|:----------------|:------|
+| [Node.js](https://nodejs.org) | >= 18.x | LTS recommended |
+| [ExifTool](https://exiftool.org) | 35.13.1 | Vendored via `exiftool-vendored` |
+| [FFmpeg](https://ffmpeg.org) | 5.2.0 | Vendored via `ffmpeg-static` |
+| [Ghostscript](https://ghostscript.com) | 10.x | Auto-downloaded on Windows |
+| [Gemini API Key](https://ai.google.dev/) | — | Obtain from Google AI Studio |
 
-### Setup
+### Installation
 
-<details>
+<details open>
 <summary><b>Windows</b></summary>
 
 ```powershell
+# Clone the repository
 git clone https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM.git
+
+# Navigate to source directory
 cd GEN-META-CR-BY_LAZIM/GenMeta_Source_Full
+
+# Install dependencies
 npm install
+
+# Launch the application
 npm start
 ```
 
-**Quick launch:** Double-click `run_genmeta.cmd`
+**Quick launch:** Simply double-click `run_genmeta.cmd`
 </details>
 
 <details>
 <summary><b>macOS / Linux</b></summary>
 
 ```bash
+# Clone the repository
 git clone https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM.git
+
+# Navigate to source directory
 cd GEN-META-CR-BY_LAZIM/GenMeta_Source_Full
+
+# Install dependencies
 npm install
+
+# Launch the application
 npm start
 ```
 </details>
 
 ---
 
-## Usage
+## ✦ Usage
+
+### Workflow
 
 | Step | Action |
 |:-----|:-------|
-| **1** | Click **Browse** and select a folder containing your media |
-| **2** | Choose platform, title length, keyword count, and format |
+| **1** | Click **Browse** and select a folder containing your media assets |
+| **2** | Configure platform, title length, keyword count, and output format |
 | **3** | Click **Generate Metadata** — Gemini AI analyzes each file visually |
-| **4** | Metadata is written to EXIF/XMP/IPTC in real time |
-| **5** | Export as platform-formatted CSV or rename files using AI-generated titles |
+| **4** | Metadata is embedded into EXIF / XMP / IPTC headers in real time |
+| **5** | Export as platform-formatted CSV or rename files using AI titles |
 
-Features available during/after processing:
-- **CSV Export** — formatted per platform (Adobe Stock, Shutterstock, iStock, Pond5, 123RF)
-- **File Rename** — auto-rename using AI-generated titles
-- **Retry** — re-process individual files or full batch
-- **Preview** — inspect metadata before export
+### Post-Processing Capabilities
+
+- **CSV Export** — formatted per platform (Adobe Stock, Shutterstock, iStock, Pond5, 123RF, Freepik, Dreamstime, Vecteezy)
+- **File Rename** — automatically rename assets using AI-generated titles
+- **Selective Retry** — re-process individual files or full batches
+- **Metadata Preview** — inspect generated metadata before export
 
 ---
 
-## How It Works
+## ✦ Architecture
 
 ```
-  Select Files  -->  Analyze via Gemini  -->  Generate Metadata  -->  Write & Export
-  (Folder)           AI Vision              (JSON)                 (EXIF / CSV)
+  ┌──────────┐    ┌──────────────┐    ┌────────────┐    ┌──────────────┐
+  │  Select   │    │   Analyze    │    │  Generate  │    │   Write &    │
+  │  Media    │ →  │   via Gemini │ →  │  Metadata  │ →  │    Export    │
+  │  Folder   │    │   AI Vision  │    │   (JSON)   │    │  (EXIF/CSV)  │
+  └──────────┘    └──────────────┘    └────────────┘    └──────────────┘
 ```
 
-| Step | Description |
-|:-----|:------------|
-| **Scan** | Recursively scans directory for supported media files |
+### Processing Lifecycle
+
+| Phase | Description |
+|:------|:------------|
+| **Scan** | Recursively discovers supported media files in the selected directory |
 | **Prepare** | Resizes images, extracts video frames, converts EPS/SVG to raster |
 | **Analyze** | Sends prepared media to Google Gemini AI with a structured prompt |
-| **Parse** | Receives JSON response with title, description, keywords, categories |
-| **Validate** | Validates and repairs JSON; sanitizes keywords against forbidden lists |
-| **Write** | Embeds metadata into file via ExifTool (IPTC + XMP + EXIF) |
+| **Parse** | Receives structured JSON with title, description, keywords, categories |
+| **Validate** | Sanitizes output, repairs malformed JSON, filters forbidden keywords |
+| **Write** | Embeds metadata into file headers via ExifTool (IPTC + XMP + EXIF) |
 | **Export** | Generates platform-formatted CSV files for stock agency upload |
-| **Cleanup** | Removes temporary conversion files and processing artifacts |
+| **Cleanup** | Removes all temporary conversion files and processing artifacts |
 
 ---
 
-## Project Structure
+## ✦ Tech Stack
 
-<details>
-<summary><b>Click to expand</b> — full project tree</summary>
-
-```
-GEN-META-CR-BY_LAZIM/
-├── .gitignore
-├── README.md
-├── run_genmeta.cmd
-└── GenMeta_Source_Full/
-    ├── LICENSE
-    ├── package.json
-    ├── run_genmeta.cmd
-    └── src/
-        ├── index.html
-        ├── main.js
-        ├── preload.js
-        ├── createMainWindow.js
-        ├── assets/                  # App icons & branding
-        ├── components/              # Navbar, profile, panels
-        ├── config/                  # App settings, constants, models
-        ├── handlers/                # IPC event handlers
-        ├── main/                    # Electron main process
-        │   ├── index.js
-        │   ├── preload.js
-        │   ├── protocol.js
-        │   ├── window.js
-        │   ├── ipc/                 # 11 IPC handler modules
-        │   ├── handlers/processing/ # Batch processing logic
-        │   ├── services/            # Startup, subscription, updater
-        │   └── utils/ghostscript/   # Ghostscript manager
-        ├── modals/                  # 13 modal dialog HTML files
-        ├── modules/                 # Core business logic
-        │   ├── ai/                  # Gemini AI client & prompts
-        │   ├── auth/                # Authentication system
-        │   ├── ghostscript/         # Ghostscript installer
-        │   ├── media/               # Image/video processing
-        │   ├── metadata/            # EXIF/XMP/IPTC writer
-        │   ├── processing/          # Batch orchestrator
-        │   ├── settings/            # Settings manager
-        │   └── tracking/            # API key usage tracker
-        ├── partials/                # Reusable HTML sections
-        ├── process/                 # Processing pipeline
-        ├── renderer/                # Frontend UI
-        │   ├── index.html
-        │   ├── assets/icons/        # Platform icons (9)
-        │   ├── css/                 # ~60 stylesheets
-        │   ├── html/                # HTML partials
-        │   └── js/                  # Renderer JS (~8k lines main)
-        ├── resource/                # Duplicate resource directory
-        ├── sections/                # Initial state HTML
-        ├── services/                # API services
-        ├── shared/                  # Shared constants & helpers
-        └── utils/                   # Utility functions
-```
-</details>
-
----
-
-## Tech Stack
-
-<p align="center">
+<div align="center">
   <img src="https://img.shields.io/badge/Electron-41.6.1-47848f?style=for-the-badge&logo=electron&logoColor=white" alt="Electron">
   <img src="https://img.shields.io/badge/Node.js-%E2%89%A518.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/Gemini_AI-1.34.0-8e75f5?style=for-the-badge&logo=google&logoColor=white" alt="Gemini">
-</p>
+  <img src="https://img.shields.io/badge/ExifTool-35.13.1-ff6b6b?style=for-the-badge&logo=openexr&logoColor=white" alt="ExifTool">
+  <img src="https://img.shields.io/badge/Sharp-0.34.0-99cc00?style=for-the-badge&logo=sharp&logoColor=white" alt="Sharp">
+  <img src="https://img.shields.io/badge/FFmpeg-5.2.0-007808?style=for-the-badge&logo=ffmpeg&logoColor=white" alt="FFmpeg">
+</div>
+
+### Core Dependencies
 
 | Package | Version | Purpose |
 |:--------|:--------|:--------|
 | **@google/genai** | ^1.34.0 | Google Gemini AI SDK |
-| **exiftool-vendored** | ^35.13.1 | EXIF/XMP/IPTC metadata read/write |
-| **sharp** | ^0.34.0 | Image processing (resize, convert) |
-| **fluent-ffmpeg** | ^2.1.3 | Video frame extraction |
-| **ffmpeg-static** | ^5.2.0 | Bundled FFmpeg binary |
-| **ffprobe-static** | ^3.1.0 | Bundled FFprobe binary |
-| **electron-updater** | ^6.6.2 | Auto-updates via GitHub releases |
-| **electron-log** | ^5.3.3 | Application logging |
+| **exiftool-vendored** | ^35.13.1 | EXIF / XMP / IPTC metadata read/write |
+| **sharp** | ^0.34.0 | Image processing (resize, convert, analyze) |
+| **fluent-ffmpeg** | ^2.1.3 | Video frame extraction and processing |
+| **ffmpeg-static** | ^5.2.0 | Bundled FFmpeg binary distribution |
+| **ffprobe-static** | ^3.1.0 | Bundled FFprobe binary distribution |
+| **electron-updater** | ^6.6.2 | Auto-update via GitHub releases |
+| **electron-log** | ^5.3.3 | Structured application logging |
 
 ---
 
-## Configuration
+## ✦ Configuration
 
-### App Settings
+### Application Settings
 
 | File | Purpose |
 |:-----|:--------|
-| `src/config/api.js` | API endpoints (dev/staging/prod) |
-| `src/config/app.js` | Timeouts, cleanup dirs, intervals |
-| `src/config/constants.js` | Concurrency, retries, supported formats |
-| `src/config/models.js` | Available Gemini AI models |
+| `src/config/api.js` | API endpoint configuration (dev / staging / production) |
+| `src/config/app.js` | Global application settings (timeouts, cleanup, intervals) |
+| `src/config/constants.js` | Processing constants (concurrency, retries, supported formats) |
+| `src/config/models.js` | Available Gemini AI model definitions |
 
 ### Key Constants
 
 | Constant | Default | Description |
 |:---------|:--------|:------------|
-| `MAX_CONCURRENT_UPLOAD_REQUESTS` | 5 | Parallel AI requests |
-| `MAX_RETRIES` | 1 | Retry attempts per file |
-| `INITIAL_TIMEOUT` | 50,000ms | AI request timeout |
-| `API_STATUS_CHECK_INTERVAL` | 10,000ms | Backend health check interval |
-| `AUTH_TIMEOUT` | 5 min | Authentication window |
+| `MAX_CONCURRENT_UPLOAD_REQUESTS` | 5 | Maximum parallel AI requests |
+| `MAX_RETRIES` | 1 | Number of retry attempts per file |
+| `INITIAL_TIMEOUT` | 50,000ms | AI request timeout duration |
+| `API_STATUS_CHECK_INTERVAL` | 10,000ms | Backend health check polling interval |
+| `AUTH_TIMEOUT` | 5 min | Authentication window expiration |
 
-### Gemini Models
+### Gemini Model Tiers
 
-| Tier | Model ID |
-|:-----|:---------|
-| Fast | `gemini-3.1-flash-lite-preview` |
-| Balanced | `gemini-3-flash-preview` |
-| High Quality | `gemini-2.5-flash` |
-| Lightweight | `gemini-2.5-flash-lite` |
+| Tier | Model ID | Best For |
+|:-----|:---------|:---------|
+| **Fast** | `gemini-3.1-flash-lite-preview` | Quick processing, large batches |
+| **Balanced** | `gemini-3-flash-preview` | General purpose metadata generation |
+| **High Quality** | `gemini-2.5-flash` | Premium accuracy, detailed analysis |
+| **Lightweight** | `gemini-2.5-flash-lite` | Minimal resource consumption |
 
 ---
 
-## FAQ
+## ✦ Project Structure
+
+<details>
+<summary><b>Click to expand</b> — complete project tree</summary>
+
+```
+GEN-META-CR-BY_LAZIM/
+├── .gitignore                      # Version control exclusions
+├── README.md                       # Project documentation
+├── run_genmeta.cmd                 # Quick-launch script
+└── GenMeta_Source_Full/
+    ├── LICENSE                     # MIT License
+    ├── package.json                # Project manifest & dependencies
+    ├── package-lock.json           # Locked dependency tree
+    ├── run_genmeta.cmd             # Development launcher
+    └── src/
+        ├── index.html              # App entry point
+        ├── main.js                 # Renderer process entry
+        ├── preload.js              # Context bridge
+        ├── createMainWindow.js     # Window factory
+        ├── assets/                 # Application icons & branding assets
+        ├── components/             # Reusable UI components (navbar, panels)
+        ├── config/                 # Application configuration modules
+        ├── handlers/               # IPC event handler modules
+        ├── main/                   # Electron main process
+        │   ├── index.js            # Main process entry point
+        │   ├── preload.js          # Main process preload
+        │   ├── protocol.js         # Custom protocol handler
+        │   ├── window.js           # Window management
+        │   ├── ipc/                # 11 IPC channel handlers
+        │   ├── handlers/processing/# Batch processing orchestration
+        │   ├── services/           # Startup, subscription, updater services
+        │   └── utils/ghostscript/  # Ghostscript detection & installation
+        ├── modals/                 # 13 modal dialog HTML templates
+        ├── modules/                # Core business logic modules
+        │   ├── ai/                 # Gemini AI client & prompt builder
+        │   ├── auth/               # Authentication system
+        │   ├── ghostscript/        # Ghostscript installer & manager
+        │   ├── media/              # Image/video preprocessing
+        │   ├── metadata/           # EXIF/XMP/IPTC writer & parser
+        │   ├── processing/         # Batch orchestrator & pipeline
+        │   ├── settings/           # Settings persistence & management
+        │   └── tracking/           # API key usage tracking & distribution
+        ├── partials/               # Reusable HTML partial templates
+        ├── process/                # Processing pipeline implementation
+        ├── renderer/               # Frontend UI layer
+        │   ├── index.html          # Main renderer HTML
+        │   ├── assets/icons/       # Platform-specific icons (9 formats)
+        │   ├── css/                # ~60 modular stylesheets
+        │   ├── html/               # HTML partials & sections
+        │   └── js/                 # Renderer JavaScript (~8k LOC in main)
+        ├── resource/               # Duplicated resource directory
+        ├── sections/               # Initial state HTML sections
+        ├── services/               # API & backend service clients
+        ├── shared/                 # Shared constants & helper utilities
+        └── utils/                  # Utility functions & helpers
+```
+</details>
+
+---
+
+## ✦ FAQ
 
 <details>
 <summary><b>Do I need a Google Gemini API key?</b></summary>
-Yes. Get one from <a href="https://ai.google.dev/">Google AI Studio</a>. Guest mode works with limited functionality.
+
+**Yes.** You can obtain one for free from [Google AI Studio](https://ai.google.dev/). Guest mode provides limited functionality without a key.
 </details>
 
 <details>
 <summary><b>What file types are supported?</b></summary>
-Images: JPG, JPEG, PNG, GIF, BMP, WebP &nbsp;|&nbsp; Videos: MP4, MOV, AVI, MKV, WebM &nbsp;|&nbsp; Vector: EPS, SVG
+
+| Category | Formats |
+|:---------|:--------|
+| Images | JPG, JPEG, PNG, GIF, BMP, WebP |
+| Videos | MP4, MOV, AVI, MKV, WebM |
+| Vector | EPS, SVG (auto-converted via Ghostscript) |
 </details>
 
 <details>
 <summary><b>Does GenMeta modify my original files?</b></summary>
-Metadata is embedded into EXIF/XMP/IPTC headers. Pixel data is never altered. Always keep backups before batch processing.
+
+Metadata is embedded exclusively into **EXIF / XMP / IPTC headers**. Pixel data is never altered. However, we recommend maintaining backups before processing large batches.
 </details>
 
 <details>
 <summary><b>How is Ghostscript installed?</b></summary>
-Auto-detected on launch. If missing, it downloads and installs automatically on Windows. macOS/Linux users install via package manager.
+
+On **Windows**, GenMeta automatically detects and downloads Ghostscript if missing. On **macOS / Linux**, install via your package manager (`brew install ghostscript`, `apt install ghostscript`, etc.).
 </details>
 
 <details>
 <summary><b>Can I use multiple API keys?</b></summary>
-Yes — add multiple keys for automatic rotation across requests to avoid rate limits.
+
+**Absolutely.** Adding multiple API keys enables automatic rotation across requests, effectively distributing rate limits and maximizing throughput.
 </details>
 
 <details>
 <summary><b>Is there a subscription fee?</b></summary>
-Both guest and subscription tiers are available. Subscriptions unlock higher batch limits, priority processing, and advanced export options.
+
+Both **guest** and **subscription** tiers are available. Subscriptions unlock higher batch limits, priority processing, and advanced export options.
 </details>
 
 ---
 
-## Roadmap
+## ✦ Roadmap
+
+### Completed
 
 - [x] Core AI metadata generation (images & videos)
-- [x] Batch processing with parallel execution
-- [x] EXIF/XMP/IPTC metadata writing
-- [x] EPS/SVG conversion & metadata support
-- [x] Multi-platform CSV export
-- [ ] Web version (cloud-based processing)
-- [ ] Adobe Stock API direct submission
-- [ ] Shutterstock API direct submission
-- [ ] AI model fine-tuning for stock-specific keywords
-- [ ] Plugin system for custom metadata workflows
+- [x] Batch processing with parallel execution & concurrency control
+- [x] EXIF / XMP / IPTC metadata writing via ExifTool
+- [x] EPS / SVG vector conversion & metadata support
+- [x] Multi-platform CSV export (8 platforms)
+- [x] Intelligent API key rotation & rate-limit management
+
+### In Progress / Planned
+
+- [ ] **Web Platform** — cloud-based processing via browser
+- [ ] **Adobe Stock API** — direct submission integration
+- [ ] **Shutterstock API** — direct submission integration
+- [ ] **Fine-Tuned Model** — custom Gemini model for stock-specific keywords
+- [ ] **Plugin System** — extensible workflow plugin architecture
+- [ ] **Batch Preview** — bulk metadata review before writing
+- [ ] **Multi-Language Support** — localized metadata generation
 
 ---
 
-## Troubleshooting
+## ✦ Troubleshooting
 
-| Issue | Solution |
-|:------|:---------|
-| **Ghostscript not found** | Run auto-installer from UI, or install Ghostscript 10.x manually |
-| **API timeouts** | Reduce `MAX_CONCURRENT_UPLOAD_REQUESTS` in config |
-| **Metadata not writing** | Verify ExifTool permissions — run as admin if needed |
-| **Large batches failing** | Decrease batch size or increase `INITIAL_TIMEOUT` |
-| **Video processing slow** | Reduce video resolution or shorten clips before processing |
+| Issue | Likely Cause | Solution |
+|:------|:-------------|:---------|
+| **Ghostscript not found** | Missing dependency | Run auto-installer from UI, or install Ghostscript 10.x manually |
+| **API timeouts** | Excessive concurrency | Reduce `MAX_CONCURRENT_UPLOAD_REQUESTS` in configuration |
+| **Metadata not writing** | Permission restrictions | Run application with administrator / sudo privileges |
+| **Large batches failing** | Resource exhaustion | Decrease batch size or increase `INITIAL_TIMEOUT` |
+| **Video processing slow** | High-resolution source | Reduce video resolution or shorten clips before processing |
+| **AI response malformed** | Complex content | Enable JSON repair; retry individual files as needed |
 
 ---
 
-## Development
+## ✦ Development
 
 ```bash
 # Clone & install
@@ -361,25 +396,25 @@ git clone https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM.git
 cd GEN-META-CR-BY_LAZIM/GenMeta_Source_Full
 npm install
 
-# Run in development mode
+# Development mode
 npm start
 # or: npx electron .
 
-# Packaging (requires electron-builder)
-# npx electron-builder --win
-# npx electron-builder --mac
-# npx electron-builder --linux
+# Package for distribution (requires electron-builder)
+# npx electron-builder --win    # Windows installer
+# npx electron-builder --mac    # macOS DMG
+# npx electron-builder --linux  # Linux AppImage / deb
 ```
 
-GenMeta runs directly from source. For packaged distribution, add `electron-builder` or `electron-forge`.
+GenMeta runs directly from source. For packaged distribution, add `electron-builder` or `electron-forge` as a dev dependency.
 
 ---
 
-## Credits
+## ✦ Credits
 
 | Role | Name |
 |:-----|:-----|
-| **Author** | [Aminur Rahman](https://github.com/aminurdev) |
+| **Author & Developer** | [Aminur Rahman](https://github.com/aminurdev) |
 | **Repository** | [GEN-META-CR-BY_LAZIM](https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM) |
 | **AI Engine** | [Google Gemini AI](https://ai.google.dev/) |
 | **Desktop Framework** | [Electron](https://www.electronjs.org/) |
@@ -390,35 +425,35 @@ GenMeta runs directly from source. For packaged distribution, add `electron-buil
 
 ---
 
-## License
+## ✦ License
 
-This project is licensed under the **MIT License** — see [`LICENSE`](GenMeta_Source_Full/LICENSE) for details.
+This project is licensed under the **MIT License** — see the [`LICENSE`](GenMeta_Source_Full/LICENSE) file for full details.
 
 ```
 MIT License
 Copyright (c) 2024 Aminur Rahman
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
 ```
 
 ---
 
-<p align="center">
-  <img src="GenMeta_Source_Full/src/assets/icon.png" width="48" height="48" alt="GenMeta">
-</p>
-
-<p align="center">
-  <b>GenMeta</b> — <em>Intelligent Metadata, Effortlessly Generated</em>
-</p>
-
-<p align="center">
+<div align="center">
+  <br>
+  <img src="GenMeta_Source_Full/src/assets/icon.png" width="64" height="64" alt="GenMeta">
+  <br><br>
+  <h3>GenMeta</h3>
+  <p><em>Intelligent Metadata, Effortlessly Generated</em></p>
+  <br>
   <a href="https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM">
     <img src="https://img.shields.io/badge/View_on-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
-</p>
-
-<p align="center">
-  <sub>Built with love for microstock contributors worldwide</sub>
+  <br><br>
+  <sub>Built with ❤️ for microstock contributors worldwide</sub>
   <br>
   <sub>&copy; 2024 <a href="https://github.com/aminurdev">Aminur Rahman</a></sub>
-</p>
+</div>
