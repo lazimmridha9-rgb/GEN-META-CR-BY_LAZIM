@@ -945,8 +945,53 @@ of this software and associated documentation files...
   </a>
 </p>
 
+<br/>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--                    DEVELOPER CREDIT SECTION                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
 <p align="center">
-  <sub>Built with ❤️ for microstock contributors worldwide</sub>
-  <br/>
-  <sub>© 2024 <a href="https://github.com/aminurdev">Aminur Rahman</a> &nbsp;·&nbsp; Maintained by <a href="https://github.com/lazimmridha9-rgb">lazimmridha9-rgb</a></sub>
+  <img src="https://img.shields.io/badge/-Lazim_Mridha-8e75f5?style=for-the-badge&logo=github&logoColor=white" alt="Lazim Mridha"/>
+</p>
+
+<p align="center">
+  <code>┌──────────────────────────────────────────────┐</code><br/>
+  <code>│                                              │</code><br/>
+  <code>│   ⚡ Developer &nbsp;&amp; Maintainer              │</code><br/>
+  <code>│                                              │</code><br/>
+  <code>│   ▸ Name:     Lazim Mridha                   │</code><br/>
+  <code>│   ▸ Role:     Full-Stack Developer            │</code><br/>
+  <code>│   ▸ GitHub:   @lazimmridha9-rgb               │</code><br/>
+  <code>│   ▸ Project:  GenMeta v6.5.10                 │</code><br/>
+  <code>│                                              │</code><br/>
+  <code>│   ▸ Repo:     GEN-META-CR-BY_LAZIM            │</code><br/>
+  <code>│   ▸ Status:   ✨ Active Development            │</code><br/>
+  <code>│                                              │</code><br/>
+  <code>└──────────────────────────────────────────────┘</code>
+</p>
+
+<p align="center">
+  <a href="https://github.com/lazimmridha9-rgb">
+    <img src="https://img.shields.io/badge/Follow-@lazimmridha9--rgb-181717?style=flat&logo=github&labelColor=1a1a2e" alt="Follow"/>
+  </a>
+  &nbsp;
+  <a href="mailto:lazimmridha@example.com">
+    <img src="https://img.shields.io/badge/Contact-Me-ff6b6b?style=flat&logo=gmail&labelColor=1a1a2e" alt="Contact"/>
+  </a>
+  &nbsp;
+  <a href="https://github.com/lazimmridha9-rgb/GEN-META-CR-BY_LAZIM">
+    <img src="https://img.shields.io/badge/Star-Repo-ffd700?style=flat&logo=github&labelColor=1a1a2e" alt="Star"/>
+  </a>
+</p>
+
+<br/>
+
+<p align="center">
+  <sub>
+    Built with ❤️ by <b>Lazim Mridha</b> &nbsp;·&nbsp;
+    Original author <a href="https://github.com/aminurdev">Aminur Rahman</a>
+    <br/>
+    © 2024 — All rights reserved
+  </sub>
 </p>
