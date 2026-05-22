@@ -1,0 +1,127 @@
+/* ============================================
+   Pricing Plan Card Layout
+   ============================================ */
+
+.pricing-plan {
+  flex: 1;
+  min-width: 150px;
+  max-width: 280px;
+  border-radius: 6px;
+  background: var(--card-bg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.pricing-plan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-plan.recommended {
+  border: 2px solid var(--primary-color);
+  transform: scale(1.02);
+}
+
+/* Plan Header */
+.plan-header {
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+  padding-top: 6px;
+}
+
+.plan-header h3 {
+  font-size: 16px;
+  margin: 8px 0 4px;
+  color: #5591ff;
+}
+
+.pricing-plan.recommended .plan-header h3 {
+  color: #0ead7c;
+}
+
+.plan-header p {
+  font-size: 10px;
+  color: #bbb;
+  margin-bottom: 4px;
+}
+
+/* Plan Title & Subtitle */
+.plan-title {
+  color: var(--primary-color);
+  font-size: 1.3em;
+  margin-bottom: 4px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.plan-subtitle {
+  color: var(--text-secondary);
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+/* Credits */
+.credits-amount {
+  font-size: 1em;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.credit-rate {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
+/* Plan Price */
+.plan-price {
+  text-align: center;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 12px;
+}
+
+.price-amount {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.original-price {
+  font-size: 1em;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+/* Billing */
+.billing-cycle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.annual-savings {
+  text-align: center;
+  color: var(--success-color);
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-bottom: 12px;
+}

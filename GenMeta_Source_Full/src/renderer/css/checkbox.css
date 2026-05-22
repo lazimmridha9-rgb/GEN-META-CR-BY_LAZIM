@@ -1,0 +1,20 @@
+/* ============================================
+   Checkbox Group Component
+   Checkbox groups and checkbox styling
+   ============================================ */
+
+.checkbox-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox input {
+  margin-right: 5px;
+}

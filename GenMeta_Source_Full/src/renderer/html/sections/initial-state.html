@@ -1,0 +1,203 @@
+<!-- Initial State Section -->
+<div id="initial-state" class="initial-state">
+  <div class="initial-state-icon">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+  <h3>Select Files or Folder & Generate SEO-friendly Metadata</h3>
+
+  <div class="initial-state-columns">
+    <!-- Left Column: File Selection -->
+    <div class="initial-left-column">
+      <div id="selection-status" class="selection-status">
+        <div class="selection-info">
+          <div class="selection-count">
+            <span id="selected-count">0</span> files selected
+          </div>
+        </div>
+
+        <div class="selection-actions">
+          <button type="button" id="initial-select-files-btn" class="btn secondary">
+            <i class="fas fa-file-video"></i>
+            Select Files
+          </button>
+          <button type="button" id="initial-select-folder-btn" class="btn secondary">
+            <i class="fas fa-folder-open"></i>
+            Select Folder
+          </button>
+        </div>
+
+        <!-- File Preview Section -->
+        <div class="file-preview-section hidden" id="file-preview-section">
+          <div class="preview-header">
+            <span class="preview-title">Selected Files</span>
+            <button type="button" id="clear-selection-btn" class="btn secondary btn-sm" title="Clear selection">
+              <i class="fas fa-times"></i>
+              Clear
+            </button>
+          </div>
+          <div class="preview-container">
+            <div class="file-preview-grid" id="file-preview-grid"></div>
+            <div class="more-files-indicator hidden" id="more-files-indicator">
+              <span id="more-files-count">+10 more</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generate Action -->
+        <div class="generate-action">
+          <button type="button" id="initial-generate-btn" class="btn primary" style="width: 100%">
+            <i class="fas fa-bolt"></i>
+            Generate
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-separator"></div>
+
+    <!-- Right Column: AI Parameters -->
+    <div class="initial-right-column">
+      <div class="initial-ai-params">
+        <div class="initial-settings">
+          <div class="settings-row">
+            <!-- Gemini Model Dropdown -->
+            <div class="form-group hidden">
+              <label for="initial-gemini-model-select">Gemini Model</label>
+              <div class="custom-dropdown" id="initial-gemini-model-dropdown">
+                <button type="button" class="dropdown-toggle" id="initial-gemini-model-toggle">
+                  <div class="dropdown-selected">
+                    <div class="dropdown-title">Gemini 2.5 Flash</div>
+                    <div class="dropdown-subtitle">250k - TPM, 20-RPD -- API per day</div>
+                  </div>
+                  <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu" id="initial-gemini-model-menu">
+                  <div class="dropdown-item-model selected" data-value="gemini-2.5-flash">
+                    <div class="dropdown-title">Gemini 2.5 Flash</div>
+                    <div class="dropdown-subtitle">250k - TPM, 20-RPD -- API per day</div>
+                  </div>
+                  <div class="dropdown-item-model" data-value="gemini-2.5-flash-lite">
+                    <div class="dropdown-title">Gemini 2.5 Flash Lite</div>
+                    <div class="dropdown-subtitle">1M - TPM, 1k-RPD -- API per day</div>
+                  </div>
+                  <div class="dropdown-item-model" data-value="gemini-2.0-flash">
+                    <div class="dropdown-title">Gemini 2.0 Flash</div>
+                    <div class="dropdown-subtitle">1M - TPM, 1k-RPD -- API per day</div>
+                  </div>
+                </div>
+                <input type="hidden" id="initial-gemini-model-select" value="gemini-2.5-flash" />
+              </div>
+            </div>
+
+            <!-- Platforms Dropdown -->
+            <div class="form-group hidden">
+              <label for="initial-microstock-select">Platforms</label>
+              <select id="initial-microstock-select" class="form-select">
+                <option value="general">General</option>
+                <option value="adobe">Adobe Stock [Category Enabled]</option>
+                <option value="shutterstock">Shutterstock [Category Enabled]</option>
+                <option value="getty">Getty Images</option>
+                <option value="freepik">Freepik</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Title Length -->
+        <div class="initial-param-group">
+          <label for="initial-title-length">Title Length</label>
+          <div class="toggle-container">
+            <div class="toggle-buttons">
+              <button type="button" class="toggle-btn active" data-mode="fixed" id="initial-title-mode-fixed">Fixed</button>
+              <button type="button" class="toggle-btn" data-mode="auto" id="initial-title-mode-auto">Auto</button>
+            </div>
+          </div>
+          <div class="range-container" id="initial-title-length-container">
+            <input type="range" id="initial-title-length" min="40" max="200" value="90" />
+            <input type="number" class="range-value-input" id="initial-title-length-value" min="40" max="200" value="90" />
+          </div>
+        </div>
+
+        <!-- Description Length -->
+        <div class="initial-param-group">
+          <label for="initial-desc-length">Description Length</label>
+          <div class="range-container">
+            <input type="range" id="initial-desc-length" min="60" max="300" value="120" />
+            <input type="number" class="range-value-input" id="initial-desc-length-value" min="60" max="300" value="120" />
+          </div>
+        </div>
+
+        <!-- Keyword Count -->
+        <div class="initial-param-group">
+          <label for="initial-keyword-count">Keyword Count</label>
+          <div class="range-container">
+            <input type="range" id="initial-keyword-count" min="10" max="50" value="20" />
+            <input type="number" class="range-value-input" id="initial-keyword-count-value" min="10" max="50" value="20" />
+          </div>
+        </div>
+
+        <!-- Keyword Format -->
+        <div class="initial-param-group">
+          <label class="param-label">Keyword Format</label>
+          <div class="keyword-format-group" id="initial-keyword-format-group">
+            <button type="button" class="keyword-format-btn" data-format="single">
+              <i class="fas fa-tag"></i>
+              Single
+            </button>
+            <button type="button" class="keyword-format-btn" data-format="double">
+              <i class="fas fa-tags"></i>
+              Double
+            </button>
+            <button type="button" class="keyword-format-btn active" data-format="auto">
+              <i class="fas fa-magic"></i>
+              Auto
+            </button>
+          </div>
+        </div>
+
+        <!-- Keywords Display -->
+        <div class="initial-keywords-display">
+          <div class="keywords-header">
+            <span class="keywords-title">
+              <i class="fas fa-tags"></i>
+              Keywords
+            </span>
+            <button type="button" id="initial-edit-keywords-btn" class="btn-icon" title="Edit Keywords">
+              <i class="fas fa-pen"></i>
+            </button>
+          </div>
+          <div class="keywords-preview">
+            <div class="keywords-section" id="initial-positive-preview">
+              <div class="keywords-section-title">
+                <i class="fas fa-plus-circle text-success"></i>
+                Positive
+              </div>
+              <div class="keywords-tags" id="initial-positive-tags">
+                <span class="keyword-tag-preview">No keywords added</span>
+              </div>
+            </div>
+            <div class="keywords-section" id="initial-negative-preview">
+              <div class="keywords-section-title">
+                <i class="fas fa-minus-circle text-danger"></i>
+                Negative
+              </div>
+              <div class="keywords-tags" id="initial-negative-tags">
+                <span class="keyword-tag-preview">No keywords added</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Notes -->
+  <div>
+    <p style="font-size: 10px; margin-top: 15px">Supported formats: JPG, JPEG, PNG, EPS (images) and MP4, MOV (videos).</p>
+    <p style="font-size: 10px">
+      <i class="fas fa-exclamation-triangle"></i>
+      <strong>Note:</strong>
+      Avoid using non-ASCII characters in file names, it may cause crush the app.
+    </p>
+  </div>
+</div>

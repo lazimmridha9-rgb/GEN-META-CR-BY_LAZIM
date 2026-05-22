@@ -1,0 +1,36 @@
+/* ============================================
+   Dialog Animations
+   Keyframe animations specific to dialog components
+   ============================================ */
+
+/* Credit Update Flash */
+.credit-update {
+  animation: flash-highlight 1s ease-in-out;
+}
+
+@keyframes flash-highlight {
+  0% {
+    background-color: transparent;
+  }
+  25% {
+    background-color: rgba(var(--success-color-rgb, 46, 204, 113), 0.4);
+  }
+  75% {
+    background-color: rgba(var(--success-color-rgb, 46, 204, 113), 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Profile Dropdown Slide */
+@keyframes profileDropdownSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

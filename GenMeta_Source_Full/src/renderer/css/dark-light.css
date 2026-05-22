@@ -1,0 +1,46 @@
+/* ============================================
+   Dark Theme (Default)
+   ============================================ */
+
+:root,
+:root.dark-theme {
+  --window-bg: #1e1e1e;
+  --sidebar-bg: #252525;
+  --card-bg: #2d2d2d;
+  --header-bg: #0078d7;
+  --text-color: #e0e0e0;
+  --text-light: #ffffff;
+  --text-secondary: #a0a0a0;
+  --border-color: #3d3d3d;
+  --navbar-bg: #2b2b2b;
+  --dialog-bg: #2d2d2d;
+  --input-bg: #333333;
+  --input-border: #555555;
+  --toggle-bg: #444444;
+  --toggle-active: #0078d7;
+  --toggle-text: #e0e0e0;
+}
+
+/* ============================================
+   Light Theme
+   ============================================ */
+
+:root.light-theme {
+  --window-bg: #fafafa;
+  --sidebar-bg: #f4f6f8;
+  --card-bg: #ffffff;
+  --header-bg: #0a84ff;
+  --text-color: #1e1e1e;
+  --text-light: #000000;
+  --text-secondary: #5f6368;
+  --border-color: #e2e5e9;
+  --navbar-bg: #ffffff;
+  --dialog-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --toggle-bg: #e5e7eb;
+  --toggle-active: #0a84ff;
+  --toggle-text: #1e1e1e;
+  --skeleton-base-color: rgba(0, 0, 0, 0.06);
+  --skeleton-highlight-color: rgba(255, 255, 255, 0.6);
+}

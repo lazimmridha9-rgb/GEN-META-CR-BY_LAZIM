@@ -1,0 +1,155 @@
+/* Settings Dialog Layout */
+
+/* Dialog Container */
+.settings-dialog {
+  width: 90%;
+  max-width: 999px;
+  height: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.settings-container {
+  display: flex;
+  height: calc(100% - 110px);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Settings Sidebar */
+.settings-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+.settings-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.settings-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settings-menu-item i {
+  width: 16px;
+  margin-right: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.settings-menu-item:hover {
+  background-color: var(--card-bg);
+  color: var(--text-light);
+}
+
+.settings-menu-item.active {
+  background-color: var(--card-bg);
+  border-left-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.settings-menu-item.active i {
+  color: var(--primary-color);
+}
+
+/* Settings Content */
+.settings-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.settings-section {
+  display: none;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #444;
+  animation: fadeInOpacity 0.3s ease;
+}
+
+.settings-section:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.settings-section.active {
+  display: block;
+}
+
+/* Section Title */
+.settings-section-title {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-section-title i {
+  margin-right: 8px;
+  color: #aaa;
+}
+
+.settings-section-title.has-changes::after {
+  position: absolute;
+  top: 0;
+  right: -15px;
+  font-size: 20px;
+  color: #3b82f6;
+  animation: pulse 2s infinite;
+  content: "\2022";
+}
+
+/* Custom Prompt Container */
+#custom-prompt-container {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#custom-prompt-container.show {
+  display: block !important;
+}
+
+/* Toggle Synced State */
+.toggle.synced .toggle-slider {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Form Select Synced */
+.form-select.synced {
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Settings Dialog Syncing */
+.settings-dialog.syncing {
+  position: relative;
+}
+
+.settings-dialog.syncing::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  animation: syncProgress 1s ease-in-out infinite;
+  content: "";
+}

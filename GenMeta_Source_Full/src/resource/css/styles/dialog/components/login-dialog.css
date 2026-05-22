@@ -1,0 +1,136 @@
+/* Login Dialog Base */
+
+/* Dialog Container */
+.login-dialog {
+  width: 90%;
+  max-width: 420px;
+  overflow: hidden;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Dialog Header */
+.login-dialog .dialog-header {
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.login-dialog .dialog-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+/* Login Container */
+.login-container {
+  padding: 0 10px;
+}
+
+/* Login Header */
+.login-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.login-header h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+}
+
+.login-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Social Login */
+.social-login {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.google-login {
+  width: 100%;
+  height: auto;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 500;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.google-login:hover {
+  background-color: #333;
+  border-color: #555;
+}
+
+.google-login i {
+  margin-right: 8px;
+  color: #4285f4;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Guest Login Button */
+.guest-login {
+  width: 100%;
+  background-color: #2a2a2a;
+  color: #aaa;
+  border: 1px solid #444;
+  padding: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.guest-login:hover {
+  background-color: #333;
+  border-color: #555;
+  color: white;
+}
+
+.guest-login i {
+  font-size: 16px;
+}
+
+/* Divider */
+.login-divider {
+  position: relative;
+  margin: 24px 0;
+  text-align: center;
+}
+
+.login-divider:before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #444;
+  content: "";
+}
+
+.login-divider span {
+  position: relative;
+  padding: 0 16px;
+  font-size: 14px;
+  background-color: #222;
+  color: #888;
+}

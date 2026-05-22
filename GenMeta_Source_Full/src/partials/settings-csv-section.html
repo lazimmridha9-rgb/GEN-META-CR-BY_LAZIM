@@ -1,0 +1,178 @@
+<!-- Settings: CSV Export Section -->
+<h4 class="settings-section-title">
+  <i class="fas fa-file-csv"></i>
+  CSV Export Settings
+</h4>
+
+<div class="form-group">
+  <h5 class="settings-subsection-title">
+    <i class="fas fa-store"></i>
+    Select Marketplaces
+  </h5>
+  <p class="setting-hint">Choose which marketplaces to generate CSV files for during export</p>
+</div>
+
+<!-- Marketplace Cards Grid -->
+<div class="csv-markets-grid">
+  <!-- General -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-general" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/general.svg" alt="General" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">General</div>
+        <div class="market-desc">Depositphotos, Vecteezy & Others</div>
+      </div>
+    </div>
+  </label>
+
+  <!-- Adobe Stock -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-adobestock" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/adobe-stock.svg" alt="Adobe Stock" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">Adobe Stock</div>
+        <div class="market-desc">Adobe's marketplace</div>
+      </div>
+    </div>
+  </label>
+
+  <!-- Freepik -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-freepik" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/freepik.svg" alt="Freepik" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">Freepik</div>
+        <div class="market-desc">Free & premium resources</div>
+      </div>
+    </div>
+  </label>
+
+  <!-- Shutterstock -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-shutterstock" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/shutterstock.svg" alt="Shutterstock" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">Shutterstock</div>
+        <div class="market-desc">Stock content provider</div>
+      </div>
+    </div>
+  </label>
+
+  <!-- iStock -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-istock" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/istock.svg" alt="iStock" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">iStock</div>
+        <div class="market-desc">Getty Images marketplace</div>
+      </div>
+      <button type="button" class="market-settings-btn" id="csv-istock-settings-btn" title="Configure iStock settings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+  </label>
+
+  <!-- Pond5 -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-pond5" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/pond5.webp" alt="Pond5" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">Pond5</div>
+        <div class="market-desc">Video & media marketplace</div>
+      </div>
+      <button type="button" class="market-settings-btn" id="csv-pond5-settings-btn" title="Configure Pond5 settings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+  </label>
+
+  <!-- 123RF -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-123rf" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/123rf.svg" alt="123RF" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">123RF</div>
+        <div class="market-desc">Royalty-free photos</div>
+      </div>
+      <button type="button" class="market-settings-btn" id="csv-123rf-settings-btn" title="Configure 123RF settings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+  </label>
+
+  <!-- Dreamstime -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-dreamstime" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/dreamstime.svg" alt="Dreamstime" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">Dreamstime</div>
+        <div class="market-desc">Community stock photos</div>
+      </div>
+    </div>
+  </label>
+
+  <!-- Vecteezy -->
+  <label class="csv-market-card">
+    <input type="checkbox" id="csv-enable-vecteezy" checked />
+    <div class="market-card-content">
+      <div class="toggle-switch">
+        <span class="toggle-slider"></span>
+      </div>
+      <div class="market-icon">
+        <img src="./resource/images/icons/Vecteezy.png" alt="Vecteezy" />
+      </div>
+      <div class="market-info">
+        <div class="market-name">Vecteezy</div>
+        <div class="market-desc">Free vector art & more</div>
+      </div>
+    </div>
+  </label>
+</div>
