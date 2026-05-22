@@ -1,0 +1,49 @@
+/* GenMeta - Main Styles Entry Point
+ * Modular CSS Architecture - All styles organized by concern
+ * Total: ~100 lines (imports only)
+ */
+
+/* 1. Variables & Themes */
+@import url("variables.css");
+@import url("dark-light.css");
+
+/* 2. Base Reset & Global */
+@import url("base.css");
+
+/* 3. Animations (keyframes) */
+@import url("animations.css");
+
+/* 4. Utilities */
+@import url("utilities.css");
+@import url("scrollbars.css");
+
+/* 5. Components */
+@import url("buttons.css");
+@import url("toggles.css");
+@import url("dropdowns.css");
+@import url("forms.css");
+@import url("progress.css");
+@import url("file-preview.css");
+@import url("drag-drop.css");
+@import url("toast.css");
+@import url("csv-markets.css");
+@import url("docs-panel.css");
+
+/* 6. Dialogs (modular) */
+@import url("dialog.css");
+
+/* 7. Layouts */
+@import url("main-layout.css");
+@import url("navbar.css");
+@import url("status-bar.css");
+
+/* 8. Sections */
+@import url("summary.css");
+@import url("results.css");
+@import url("initial-state.css");
+@import url("settings.css");
+@import url("api-keys.css");
+@import url("ghostscript.css");
+
+/* 9. Responsive */
+@import url("responsive.css");

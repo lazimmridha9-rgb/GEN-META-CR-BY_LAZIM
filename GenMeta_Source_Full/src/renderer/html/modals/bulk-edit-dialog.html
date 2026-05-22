@@ -1,0 +1,205 @@
+<!-- Bulk Edit Dialog Modal -->
+<div class="dialog-overlay" id="common-keyword-dialog">
+  <div class="dialog" style="width: 530px; max-width: 95%">
+    <!-- Dialog Header -->
+    <div class="dialog-header">
+      <div class="dialog-title">Bulk Edit Metadata</div>
+      <button class="dialog-close" id="close-keyword-dialog">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Dialog Body -->
+    <div class="dialog-body">
+      <form id="common-keyword-form">
+        <!-- Tab Navigation -->
+        <div class="form-tabs">
+          <button type="button" class="tab-btn active" data-tab="keywords-tab">Keywords</button>
+          <button type="button" class="tab-btn" data-tab="title-tab">Title</button>
+          <button type="button" class="tab-btn" data-tab="description-tab">Description</button>
+          <button type="button" class="tab-btn" data-tab="swap-tab">Swap</button>
+        </div>
+
+        <!-- Keywords Tab -->
+        <div id="keywords-tab" class="tab-content active">
+          <div class="form-group">
+            <label for="common-keyword">Keyword(s)</label>
+            <input type="text" id="common-keyword" placeholder="Enter keyword(s) separated by commas" required />
+            <small class="form-hint">Add one or more keywords to all selected images</small>
+          </div>
+
+          <div class="form-group">
+            <label>Position</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="keyword-position" value="first" checked />
+                <span>Start</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="keyword-position" value="last" />
+                <span>End</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="keyword-position" value="custom" />
+                <span>Custom</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="custom-position-group" style="display: none">
+            <label for="custom-position">Custom Position (1-based index)</label>
+            <input type="number" id="custom-position" min="1" value="1" step="1" />
+          </div>
+        </div>
+
+        <!-- Title Tab -->
+        <div id="title-tab" class="tab-content">
+          <div class="form-group">
+            <label>Action</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="title-action" value="insert" checked />
+                <span>Insert</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="title-action" value="replace" />
+                <span>Replace</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="title-action" value="from-description" />
+                <span>Copy From Description</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bulk-title-text">Title Text</label>
+            <input type="text" id="bulk-title-text" placeholder="Enter text to add or replace in titles" />
+            <small class="form-hint" id="title-hint">Text will be inserted at the specified position</small>
+          </div>
+
+          <div class="form-group" id="title-position-options">
+            <label>Insert Position</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="title-position-type" value="first" checked />
+                <span>Start</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="title-position-type" value="last" />
+                <span>End</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="title-position-type" value="custom" />
+                <span>Custom</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="title-replace-text" style="display: none">
+            <label for="title-search-text">Text to Replace</label>
+            <input type="text" id="title-search-text" placeholder="Enter text to find and replace in titles" />
+            <small class="form-hint">Leave empty to replace the entire title</small>
+          </div>
+
+          <div class="form-group" id="title-position-group" style="display: none">
+            <label for="title-position">Custom Word Position</label>
+            <div class="position-container">
+              <input type="number" id="title-position" min="1" value="1" step="1" />
+              <span class="position-hint">Position starts at 1 (first word)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Tab -->
+        <div id="description-tab" class="tab-content">
+          <div class="form-group">
+            <label>Action</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="description-action" value="insert" checked />
+                <span>Insert</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="description-action" value="replace" />
+                <span>Replace</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="description-action" value="from-title" />
+                <span>Copy from Title</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="bulk-description-text">Description Text</label>
+            <textarea id="bulk-description-text" placeholder="Enter text to add or replace in descriptions" rows="3"></textarea>
+            <small class="form-hint" id="description-hint">Text will be inserted at the specified position</small>
+          </div>
+
+          <div class="form-group" id="description-position-options">
+            <label>Insert Position</label>
+            <div class="radio-group">
+              <label class="radio">
+                <input type="radio" name="description-position-type" value="first" checked />
+                <span>Start</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="description-position-type" value="last" />
+                <span>End</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="description-position-type" value="custom" />
+                <span>Custom</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="description-replace-text" style="display: none">
+            <label for="description-search-text">Text to Replace</label>
+            <input type="text" id="description-search-text" placeholder="Enter text to find and replace in descriptions" />
+            <small class="form-hint">Leave empty to replace the entire description</small>
+          </div>
+
+          <div class="form-group" id="description-position-group" style="display: none">
+            <label for="description-position">Custom Word Position</label>
+            <div class="position-container">
+              <input type="number" id="description-position" min="1" value="1" step="1" />
+              <span class="position-hint">Position starts at 1 (first word)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swap Tab -->
+        <div id="swap-tab" class="tab-content">
+          <div class="form-group">
+            <label>Swap Fields</label>
+            <div style="padding: 15px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 15px">
+              <p style="margin: 0 0 10px 0; color: var(--text-secondary); font-size: 14px">
+                <i class="fas fa-exchange-alt"></i>
+                This will swap the content between Title and Description fields for all images.
+              </p>
+              <p style="margin: 0; color: var(--text-muted); font-size: 13px">
+                <i class="fas fa-info-circle"></i>
+                The Title will become the Description and the Description will become the Title.
+              </p>
+            </div>
+            <div style="text-align: center; padding: 20px">
+              <div style="display: inline-flex; align-items: center; gap: 15px; font-size: 16px; color: var(--text-primary)">
+                <span style="font-weight: 600">Title</span>
+                <i class="fas fa-exchange-alt" style="color: var(--primary-color); font-size: 24px"></i>
+                <span style="font-weight: 600">Description</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Dialog Footer -->
+    <div class="dialog-footer">
+      <button class="btn secondary" id="cancel-keyword">Cancel</button>
+      <button class="btn primary" id="apply-keyword">Apply</button>
+    </div>
+  </div>
+</div>

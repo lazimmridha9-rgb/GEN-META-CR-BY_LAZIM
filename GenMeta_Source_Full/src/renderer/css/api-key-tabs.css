@@ -1,0 +1,54 @@
+/* ============================================
+   API Key Tabs
+   ============================================ */
+
+.api-key-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0;
+}
+
+.api-key-tab {
+  flex: 1;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  bottom: -2px;
+}
+
+.api-key-tab:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.api-key-tab.active {
+  color: #4a9eff;
+  border-bottom-color: #4a9eff;
+  background: rgba(74, 158, 255, 0.1);
+}
+
+.api-key-tab i {
+  font-size: 16px;
+}
+
+.api-key-tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.api-key-tab-content.active {
+  display: block;
+}

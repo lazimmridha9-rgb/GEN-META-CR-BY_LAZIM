@@ -1,0 +1,90 @@
+/* ============================================
+   Base Reset & Global Styles
+   ============================================ */
+
+/* Universal Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Body */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--window-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+body.drag-active {
+  overflow: hidden;
+}
+
+body.drag-active .app-container {
+  pointer-events: none;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: calc(var(--spacing-unit) * 1);
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 13px;
+}
+
+/* Form Inputs (Text, Password, Number, Select, Textarea) */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1);
+  font-size: 13px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+}
+
+/* Range Input */
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 22px;
+  background: #575656;
+  outline: none;
+  border-radius: 5px;
+  transition: background-image 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 20px;
+  border-radius: 5px;
+  background: lightgray;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--primary-color);
+}

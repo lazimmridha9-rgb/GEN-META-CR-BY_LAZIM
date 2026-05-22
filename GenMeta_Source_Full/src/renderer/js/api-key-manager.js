@@ -1,0 +1,318 @@
+/**
+ * API Key Manager
+ * Manages Gemini API keys with add, edit, delete, and visibility toggle.
+ * @module api-key-manager
+ */
+/* global showToastNotification */
+
+(function () {
+  let geminiApiKeys = [];
+  let isAddingInline = false; // Prevent multiple inline edit rows
+
+  /**
+   * Load API keys from persistent settings.
+   */
+  async function loadApiKeys() {
+    try {
+      const settings = await window.electronAPI.settings.load();
+
+      if (settings.apiKeys && Array.isArray(settings.apiKeys)) {
+        geminiApiKeys = settings.apiKeys.filter(
+          (key) => key && key.trim()
+        );
+      } else {
+        geminiApiKeys = [];
+      }
+
+      renderApiKeysList();
+    } catch (error) {
+      console.error("Error loading API keys:", error);
+      geminiApiKeys = [];
+      renderApiKeysList();
+    }
+  }
+
+  /**
+   * Save current API keys to persistent settings.
+   */
+  async function saveApiKeys() {
+    try {
+      const currentSettings = await window.electronAPI.settings.load();
+      currentSettings.apiKeys = geminiApiKeys.filter(
+        (key) => key && key.trim()
+      );
+      await window.electronAPI.settings.save(currentSettings);
+    } catch (error) {
+      console.error("Error saving API keys:", error);
+      showToastNotification(
+        "Failed to save API keys. Please try again.",
+        "error"
+      );
+    }
+  }
+
+  /**
+   * Render the API keys list in the DOM.
+   */
+  function renderApiKeysList() {
+    const apiKeysList = document.getElementById("api-keys-list");
+    const emptyState = document.getElementById("api-keys-empty");
+
+    if (!apiKeysList || !emptyState) return;
+
+    isAddingInline = false;
+
+    // Remove all key items (preserve empty state element)
+    apiKeysList
+      .querySelectorAll(".api-key-item, .api-key-inline-row")
+      .forEach((item) => item.remove());
+
+    if (geminiApiKeys.length === 0) {
+      emptyState.style.display = "flex";
+      return;
+    }
+
+    emptyState.style.display = "none";
+    geminiApiKeys.forEach((key, index) => {
+      const item = createApiKeyItem(key, index);
+      apiKeysList.appendChild(item);
+    });
+  }
+
+  /**
+   * Create a DOM element for a single API key entry.
+   * @param {string} key - The raw API key value.
+   * @param {number} index - The zero-based index in the keys array.
+   * @returns {HTMLElement} The key item element.
+   */
+  function createApiKeyItem(key, index) {
+    const item = document.createElement("div");
+    item.className = "api-key-item";
+    item.dataset.index = index;
+
+    const maskedKey = maskApiKey(key);
+
+    item.innerHTML = `
+      <div class="api-key-icon">
+        <i class="fas fa-key"></i>
+      </div>
+      <div class="api-key-content">
+        <div class="api-key-label">Gemini API Key #${index + 1}</div>
+        <div class="api-key-value" data-masked="true">${maskedKey}</div>
+      </div>
+      <div class="api-key-actions">
+        <button type="button" class="api-key-btn toggle" title="Show/Hide API Key">
+          <i class="fas fa-eye"></i>
+        </button>
+        <button type="button" class="api-key-btn edit" title="Edit API Key">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button type="button" class="api-key-btn delete" title="Delete API Key">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `;
+
+    // Toggle key visibility
+    const toggleBtn = item.querySelector(".toggle");
+    const valueEl = item.querySelector(".api-key-value");
+    toggleBtn.addEventListener("click", () => {
+      const isMasked = valueEl.dataset.masked === "true";
+      if (isMasked) {
+        valueEl.textContent = key;
+        valueEl.dataset.masked = "false";
+        toggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+      } else {
+        valueEl.textContent = maskedKey;
+        valueEl.dataset.masked = "true";
+        toggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+      }
+    });
+
+    // Edit button — replace item with inline edit row
+    const editBtn = item.querySelector(".edit");
+    editBtn.addEventListener("click", () => {
+      if (isAddingInline) return;
+      showInlineRow(index, key, item);
+    });
+
+    // Delete button
+    const deleteBtn = item.querySelector(".delete");
+    deleteBtn.addEventListener("click", () => {
+      geminiApiKeys.splice(index, 1);
+      saveApiKeys();
+      renderApiKeysList();
+    });
+
+    return item;
+  }
+
+  /**
+   * Show an inline input row for adding or editing an API key.
+   * @param {number|null} editIndex - Index of key to edit, or null for new key.
+   * @param {string} existingValue - Pre-filled value for the input.
+   * @param {HTMLElement|null} referenceEl - Existing item element to replace (for edit mode).
+   */
+  function showInlineRow(
+    editIndex = null,
+    existingValue = "",
+    referenceEl = null
+  ) {
+    if (isAddingInline) return;
+    isAddingInline = true;
+
+    const apiKeysList = document.getElementById("api-keys-list");
+    const emptyState = document.getElementById("api-keys-empty");
+
+    const row = document.createElement("div");
+    row.className = "api-key-inline-row";
+
+    row.innerHTML = `
+      <div class="api-key-inline-input-wrap">
+        <input
+          type="password"
+          class="api-key-inline-input"
+          placeholder="Paste your Gemini API key here"
+          value="${existingValue}"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="button" class="api-key-btn toggle-inline" title="Show/Hide">
+          <i class="fas fa-eye"></i>
+        </button>
+      </div>
+      <div class="api-key-inline-actions">
+        <button type="button" class="btn primary btn-sm save-inline-btn">
+          <i class="fas fa-check"></i> Save
+        </button>
+        <button type="button" class="btn secondary btn-sm cancel-inline-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    `;
+
+    // Toggle visibility of inline input
+    const inlineInput = row.querySelector(".api-key-inline-input");
+    const toggleInlineBtn = row.querySelector(".toggle-inline");
+    toggleInlineBtn.addEventListener("click", () => {
+      const isPassword = inlineInput.type === "password";
+      inlineInput.type = isPassword ? "text" : "password";
+      toggleInlineBtn.innerHTML = isPassword
+        ? '<i class="fas fa-eye-slash"></i>'
+        : '<i class="fas fa-eye"></i>';
+    });
+
+    /**
+     * Save the inline input value.
+     */
+    const saveInline = () => {
+      const key = inlineInput.value.trim();
+      if (!key) {
+        showToastNotification("Please enter an API key", "warning");
+        return;
+      }
+
+      if (editIndex !== null) {
+        geminiApiKeys[editIndex] = key;
+      } else {
+        geminiApiKeys.push(key);
+      }
+      saveApiKeys();
+      renderApiKeysList();
+    };
+
+    row
+      .querySelector(".save-inline-btn")
+      .addEventListener("click", saveInline);
+
+    // Cancel — re-render the list
+    row
+      .querySelector(".cancel-inline-btn")
+      .addEventListener("click", () => {
+        renderApiKeysList();
+      });
+
+    // Enter to save, Escape to cancel
+    inlineInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") saveInline();
+      if (e.key === "Escape") renderApiKeysList();
+    });
+
+    // Insert row into DOM
+    if (referenceEl) {
+      referenceEl.replaceWith(row);
+    } else {
+      emptyState.style.display = "none";
+      apiKeysList.appendChild(row);
+    }
+
+    inlineInput.focus();
+    // Place cursor at end
+    inlineInput.setSelectionRange(
+      inlineInput.value.length,
+      inlineInput.value.length
+    );
+  }
+
+  /**
+   * Mask an API key for safe display (show first 4 and last 4 characters).
+   * @param {string} key - The raw API key.
+   * @returns {string} The masked key string.
+   */
+  function maskApiKey(key) {
+    if (!key || key.length < 8) return "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022";
+    return (
+      key.substring(0, 4) +
+      "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022" +
+      key.substring(key.length - 4)
+    );
+  }
+
+  /**
+   * Wire up the "Add API Key" button.
+   */
+  function initializeAddButton() {
+    const addBtn = document.getElementById("add-api-key-btn");
+    if (addBtn) {
+      addBtn.addEventListener("click", () => {
+        showInlineRow(null, "", null);
+      });
+    }
+  }
+
+  /**
+   * Wire up the "Get API Key" external link button.
+   */
+  function initializeGetKeyButton() {
+    const getBtn = document.getElementById("get-api-key-btn");
+    if (getBtn) {
+      getBtn.addEventListener("click", async () => {
+        const result = await window.electronAPI.openExternal(
+          "https://aistudio.google.com/app/apikey"
+        );
+        if (!result.success) {
+          console.error("Failed to open external link:", result.error);
+        }
+      });
+    }
+  }
+
+  /**
+   * Initialize the API key manager module.
+   */
+  function initialize() {
+    initializeAddButton();
+    initializeGetKeyButton();
+    loadApiKeys();
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialize);
+  } else {
+    initialize();
+  }
+
+  // Expose reload function for external use
+  window.reloadApiKeys = loadApiKeys;
+})();

@@ -1,0 +1,36 @@
+<!-- Update Dialog Modal -->
+<div class="dialog-overlay" id="update-dialog">
+  <div class="dialog">
+    <!-- Dialog Header -->
+    <div class="dialog-header">
+      <div class="dialog-title">New Update Available</div>
+      <button class="dialog-close" id="close-update-dialog">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Dialog Body -->
+    <div class="dialog-body">
+      <div id="update-message">
+        <div id="release-notes"></div>
+        <p style="display: none">A new version is available. Would you like to update now?</p>
+        <p style="display: none" id="update-version">
+          Version: <span id="new-version">loading...</span>
+        </p>
+        <div id="update-progress-container" class="hidden">
+          <div class="progress-bar-container">
+            <div id="update-progress-bar" class="progress-bar" style="width: 0%"></div>
+          </div>
+          <p id="update-progress-text">Downloading: 0%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialog Footer -->
+    <div class="dialog-footer">
+      <button class="btn secondary" id="later-update-btn">Later</button>
+      <button class="btn primary" id="download-update-btn">Download Update</button>
+      <button class="btn primary hidden" id="install-update-btn">Install Update</button>
+    </div>
+  </div>
+</div>
