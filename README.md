@@ -255,39 +255,468 @@ npm start
 
 ```
 📦 GEN-META-CR-BY_LAZIM
- ┣━ 📂 GenMeta_Source_Full
- ┃ ┣━ 📂 src
- ┃ ┃ ┣━ 📂 main                  # Electron main process
- ┃ ┃ ┃ ┣━ 📜 index.js            # Entry point
- ┃ ┃ ┃ ┣━ 📜 preload.js          # Context bridge (IPC exposure)
- ┃ ┃ ┃ ┣━ 📜 window.js           # Window management
- ┃ ┃ ┃ ┣━ 📂 ipc/                # 11 IPC handler modules
- ┃ ┃ ┃ ┗━ 📂 handlers/           # Processing pipeline handlers
- ┃ ┃ ┣━ 📂 renderer              # Frontend UI
- ┃ ┃ ┃ ┣━ 📂 js/                 # Renderer JavaScript (~8K lines)
- ┃ ┃ ┃ ┣━ 📂 css/                # ~61 stylesheets
- ┃ ┃ ┃ ┣━ 📂 html/               # HTML partials + modals
- ┃ ┃ ┃ ┗━ 📂 assets/             # Icons & images
- ┃ ┃ ┣━ 📂 modules               # Core business logic
- ┃ ┃ ┃ ┣━ 📂 ai/                 # Gemini AI client + prompts
- ┃ ┃ ┃ ┣━ 📂 auth/               # Google OAuth + email auth
- ┃ ┃ ┃ ┣━ 📂 media/              # Image/video/vector handling
- ┃ ┃ ┃ ┣━ 📂 metadata/           # EXIF/XMP/IPTC read/write
- ┃ ┃ ┃ ┣━ 📂 ghostscript/        # Auto-download + install
- ┃ ┃ ┃ ┣━ 📂 processing/         # Batch orchestration
- ┃ ┃ ┃ ┗━ 📂 settings/           # Settings management
- ┃ ┃ ┣━ 📂 process               # Processing pipeline
- ┃ ┃ ┣━ 📂 services              # API + update services
- ┃ ┃ ┣━ 📂 shared                # Constants + CSV generators
- ┃ ┃ ┣━ 📂 config                # App configuration
- ┃ ┃ ┣━ 📂 utils                 # Utilities
- ┃ ┃ ┗━ 📂 assets                # App icons
- ┃ ┣━ 📜 package.json
- ┃ ┣━ 📜 LICENSE
- ┃ ┗━ 📜 run_genmeta.cmd
- ┣━ 📜 run_genmeta.cmd
  ┣━ 📜 .gitignore
- ┗━ 📜 README.md
+ ┣━ 📜 README.md
+ ┣━ 📜 run_genmeta.cmd
+ ┗━ 📂 GenMeta_Source_Full/
+    ┣━ 📜 LICENSE
+    ┣━ 📜 package.json
+    ┣━ 📜 run_genmeta.cmd
+    ┗━ 📂 src/
+       ┣━ 📜 index.html
+       ┣━ 📜 main.js
+       ┣━ 📜 preload.js
+       ┣━ 📜 createMainWindow.js
+       ┣━ 📂 assets/
+       ┃  ┣━ 📜 google.svg
+       ┃  ┣━ 📜 icon.ico
+       ┃  ┣━ 📜 icon.ico.backup
+       ┃  ┗━ 📜 icon.png
+       ┣━ 📂 components/
+       ┃  ┣━ 📜 navbar.html
+       ┃  ┣━ 📜 profile-dropdown.html
+       ┃  ┣━ 📜 progress-panel.html
+       ┃  ┣━ 📜 results-panel.html
+       ┃  ┗━ 📜 status-bar.html
+       ┣━ 📂 config/
+       ┃  ┣━ 📜 api.js              # API endpoints (dev/staging/prod)
+       ┃  ┣━ 📜 app.js              # App constants & timeouts
+       ┃  ┣━ 📜 constant.js
+       ┃  ┣━ 📜 constants.js        # Processing constants
+       ┃  ┗━ 📜 models.js           # Supported Gemini models
+       ┣━ 📂 handlers/
+       ┃  ┣━ 📜 index.js
+       ┃  ┣━ 📜 appHandler.js
+       ┃  ┣━ 📜 authHandler.js
+       ┃  ┣━ 📜 exportHandler.js
+       ┃  ┣━ 📜 ffmpegHandler.js
+       ┃  ┣━ 📜 gsPathHandler.js
+       ┃  ┣━ 📜 outputHandler.js
+       ┃  ┣━ 📜 pathHandler.js
+       ┃  ┣━ 📜 processingHandler.js
+       ┃  ┣━ 📜 settingsHandler.js
+       ┃  ┣━ 📜 updateHandler.js
+       ┃  ┗━ 📂 settingsHandler/
+       ┃     ┣━ 📜 index.js
+       ┃     ┣━ 📜 apiKeyUtils.js
+       ┃     ┣━ 📜 defaults.js
+       ┃     ┗━ 📜 merger.js
+       ┣━ 📂 main/                   # ── Electron main process ──
+       ┃  ┣━ 📜 index.js             # Main entry point
+       ┃  ┣━ 📜 preload.js           # Context bridge (contextBridge)
+       ┃  ┣━ 📜 protocol.js          # Custom protocol handler
+       ┃  ┣━ 📜 window.js            # Window state management
+       ┃  ┣━ 📂 ipc/                 # IPC handlers (11 modules)
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 app.ipc.js
+       ┃  ┃  ┣━ 📜 auth.ipc.js
+       ┃  ┃  ┣━ 📜 export.ipc.js
+       ┃  ┃  ┣━ 📜 ffmpeg.ipc.js
+       ┃  ┃  ┣━ 📜 ghostscript.ipc.js
+       ┃  ┃  ┣━ 📜 output.ipc.js
+       ┃  ┃  ┣━ 📜 path.ipc.js
+       ┃  ┃  ┣━ 📜 processing.ipc.js
+       ┃  ┃  ┣━ 📜 settings.ipc.js
+       ┃  ┃  ┗━ 📜 update.ipc.js
+       ┃  ┣━ 📂 handlers/
+       ┃  ┃  ┗━ 📂 processing/
+       ┃  ┃     ┣━ 📜 index.js
+       ┃  ┃     ┣━ 📜 apiUsageTracker.js
+       ┃  ┃     ┣━ 📜 deviceManager.js
+       ┃  ┃     ┣━ 📜 keyManager.js
+       ┃  ┃     ┣━ 📜 metadataSaveHandler.js
+       ┃  ┃     ┣━ 📜 processingHandlerIndex.js
+       ┃  ┃     ┣━ 📜 progressTracker.js
+       ┃  ┃     ┣━ 📜 regenerateHandler.js
+       ┃  ┃     ┣━ 📜 renameHandler.js
+       ┃  ┃     ┣━ 📜 sanitizeFilename.js
+       ┃  ┃     ┣━ 📜 submitHandler.js
+       ┃  ┃     ┗━ 📜 userValidator.js
+       ┃  ┣━ 📂 services/
+       ┃  ┃  ┣━ 📜 startup.js
+       ┃  ┃  ┣━ 📜 subscription.js
+       ┃  ┃  ┗━ 📜 updater.js
+       ┃  ┗━ 📂 utils/
+       ┃     ┗━ 📂 ghostscript/
+       ┃        ┣━ 📜 index.js
+       ┃        ┣━ 📜 config.js
+       ┃        ┣━ 📜 detector.js
+       ┃        ┣━ 📜 downloader.js
+       ┃        ┣━ 📜 execHelper.js
+       ┃        ┣━ 📜 installer.js
+       ┃        ┣━ 📜 systemInfo.js
+       ┃        ┗━ 📜 verifier.js
+       ┣━ 📂 modals/                  # ── Modal dialogs (13) ──
+       ┃  ┣━ 📜 api-key-modal.html
+       ┃  ┣━ 📜 api-validation-dialog.html
+       ┃  ┣━ 📜 bulk-edit-dialog.html
+       ┃  ┣━ 📜 docs-panel.html
+       ┃  ┣━ 📜 gs-manual-install-modal.html
+       ┃  ┣━ 📜 help-dialog.html
+       ┃  ┣━ 📜 login-dialog.html
+       ┃  ┣━ 📜 rename-files-dialog.html
+       ┃  ┣━ 📜 settings-dialog.html
+       ┃  ┣━ 📜 settings-123rf-dialog.html
+       ┃  ┣━ 📜 settings-istock-dialog.html
+       ┃  ┣━ 📜 settings-pond5-dialog.html
+       ┃  ┗━ 📜 update-dialog.html
+       ┣━ 📂 modules/                 # ── Core business logic ──
+       ┃  ┣━ 📂 ai/                   # Gemini AI integration
+       ┃  ┃  ┣━ 📜 client.js
+       ┃  ┃  ┣━ 📜 error-handler.js
+       ┃  ┃  ┣━ 📜 error-messages.js
+       ┃  ┃  ┣━ 📜 uploader.js
+       ┃  ┃  ┗━ 📂 prompt/
+       ┃  ┃     ┣━ 📜 index.js
+       ┃  ┃     ┣━ 📜 builder.js
+       ┃  ┃     ┣━ 📜 categories.js
+       ┃  ┃     ┣━ 📜 format.js
+       ┃  ┃     ┣━ 📜 keywords.js
+       ┃  ┃     ┗━ 📜 templates.js
+       ┃  ┣━ 📂 auth/                 # Authentication
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 client.js
+       ┃  ┃  ┣━ 📜 login.js
+       ┃  ┃  ┗━ 📜 store.js
+       ┃  ┣━ 📂 ghostscript/          # Ghostscript manager
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 config.js
+       ┃  ┃  ┣━ 📜 detector.js
+       ┃  ┃  ┣━ 📜 downloader.js
+       ┃  ┃  ┣━ 📜 executor.js
+       ┃  ┃  ┣━ 📜 installer.js
+       ┃  ┃  ┣━ 📜 system.js
+       ┃  ┃  ┣━ 📜 validate.js
+       ┃  ┃  ┗━ 📜 verifier.js
+       ┃  ┣━ 📂 media/                # Media handling
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 format.js
+       ┃  ┃  ┣━ 📜 mime.js
+       ┃  ┃  ┣━ 📜 preparer.js
+       ┃  ┃  ┣━ 📂 image/
+       ┃  ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┃  ┣━ 📜 background.js
+       ┃  ┃  ┃  ┣━ 📜 copy-creator.js
+       ┃  ┃  ┃  ┣━ 📜 eps-converter.js
+       ┃  ┃  ┃  ┣━ 📜 resizer.js
+       ┃  ┃  ┃  ┗━ 📜 svg-converter.js
+       ┃  ┃  ┗━ 📂 video/
+       ┃  ┃     ┣━ 📜 compressor.js
+       ┃  ┃     ┣━ 📜 gemini-retry.js
+       ┃  ┃     ┣━ 📜 processor.js
+       ┃  ┃     ┗━ 📜 utils.js
+       ┃  ┣━ 📂 metadata/             # EXIF/XMP/IPTC
+       ┃  ┃  ┣━ 📜 eps-writer.js
+       ┃  ┃  ┣━ 📜 exif.js
+       ┃  ┃  ┣━ 📜 file-writer.js
+       ┃  ┃  ┣━ 📜 format.js
+       ┃  ┃  ┣━ 📜 generator.js
+       ┃  ┃  ┣━ 📜 json-repair.js
+       ┃  ┃  ┣━ 📜 key-rotator.js
+       ┃  ┃  ┣━ 📜 parser.js
+       ┃  ┃  ┗━ 📜 validator.js
+       ┃  ┣━ 📂 processing/           # Batch orchestration
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 device.js
+       ┃  ┃  ┣━ 📜 gemini-retry.js
+       ┃  ┃  ┣━ 📜 ipc.js
+       ┃  ┃  ┣━ 📜 key-manager.js
+       ┃  ┃  ┣━ 📜 metadata-save.js
+       ┃  ┃  ┣━ 📜 mkdir.js
+       ┃  ┃  ┣━ 📜 orchestrator.js
+       ┃  ┃  ┣━ 📜 preprocessor.js
+       ┃  ┃  ┣━ 📜 progress.js
+       ┃  ┃  ┣━ 📜 regenerate.js
+       ┃  ┃  ┣━ 📜 rename.js
+       ┃  ┃  ┣━ 📜 sanitize.js
+       ┃  ┃  ┣━ 📜 single.js
+       ┃  ┃  ┣━ 📜 usage-tracker.js
+       ┃  ┃  ┣━ 📜 user-validator.js
+       ┃  ┃  ┣━ 📂 batch/
+       ┃  ┃  ┃  ┣━ 📜 concurrency.js
+       ┃  ┃  ┃  ┣━ 📜 files.js
+       ┃  ┃  ┃  ┣━ 📜 processor.js
+       ┃  ┃  ┃  ┣━ 📜 semaphore.js
+       ┃  ┃  ┃  ┗━ 📜 wrapper.js
+       ┃  ┃  ┗━ 📂 pipeline/
+       ┃  ┃     ┣━ 📜 batch-processor.js
+       ┃  ┃     ┣━ 📜 media-processor.js
+       ┃  ┃     ┣━ 📜 metadata-generator.js
+       ┃  ┃     ┣━ 📜 result-processor.js
+       ┃  ┃     ┗━ 📜 state-manager.js
+       ┃  ┣━ 📂 settings/             # Settings management
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 defaults.js
+       ┃  ┃  ┣━ 📜 key-utils.js
+       ┃  ┃  ┗━ 📜 merger.js
+       ┃  ┗━ 📂 tracking/             # API key usage tracking
+       ┃     ┣━ 📜 index.js
+       ┃     ┣━ 📜 distributor.js
+       ┃     ┣━ 📜 mask.js
+       ┃     ┣━ 📜 stats.js
+       ┃     ┗━ 📜 storage.js
+       ┣━ 📂 partials/                # ── Reusable HTML sections ──
+       ┃  ┣━ 📜 api-key-banner.html
+       ┃  ┣━ 📜 drag-drop-overlay.html
+       ┃  ┣━ 📜 settings-advanced-section.html
+       ┃  ┣━ 📜 settings-ai-section.html
+       ┃  ┣━ 📜 settings-appearance-section.html
+       ┃  ┣━ 📜 settings-csv-section.html
+       ┃  ┗━ 📜 settings-system-section.html
+       ┣━ 📂 process/                 # ── Processing pipeline ──
+       ┃  ┣━ 📜 addMetadataToFile.js
+       ┃  ┣━ 📜 batchFiles.js
+       ┃  ┣━ 📜 cleanupTempFilesAsync.js
+       ┃  ┣━ 📜 processBatch.js
+       ┃  ┣━ 📜 processBatchWithConcurrencyLimit.js
+       ┃  ┣━ 📜 processImages.js
+       ┃  ┣━ 📜 processSingleFile.js
+       ┃  ┣━ 📜 repairJson.js
+       ┃  ┣━ 📜 semaphore.js
+       ┃  ┣━ 📜 uploadGemini.js
+       ┃  ┣━ 📜 validateMetadata.js
+       ┃  ┣━ 📂 ai/
+       ┃  ┃  ┣━ 📜 config.js
+       ┃  ┃  ┣━ 📜 errorHandler.js
+       ┃  ┃  ┣━ 📂 errorHandler/
+       ┃  ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┃  ┗━ 📜 errorMessages.js
+       ┃  ┃  ┗━ 📂 prompt/
+       ┃  ┃     ┣━ 📜 index.js
+       ┃  ┃     ┣━ 📜 basePrompt.js
+       ┃  ┃     ┣━ 📜 categories.js
+       ┃  ┃     ┣━ 📜 generatePrompt.js
+       ┃  ┃     ┣━ 📜 promptBuilders.js
+       ┃  ┃     ┗━ 📜 sharedUtils.js
+       ┃  ┣━ 📂 processSingleFile/
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 filePreprocessor.js
+       ┃  ┃  ┗━ 📜 geminiRetry.js
+       ┃  ┣━ 📂 services/
+       ┃  ┃  ┣━ 📜 BatchProcessor.js
+       ┃  ┃  ┣━ 📜 MediaProcessor.js
+       ┃  ┃  ┣━ 📜 MetadataProcessor.js
+       ┃  ┃  ┣━ 📜 ProcessingStateManager.js
+       ┃  ┃  ┣━ 📜 ResultProcessor.js
+       ┃  ┃  ┣━ 📂 MediaProcessor/
+       ┃  ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┃  ┣━ 📜 copyCreator.js
+       ┃  ┃  ┃  ┣━ 📜 fileFormat.js
+       ┃  ┃  ┃  ┗━ 📜 mediaPreparer.js
+       ┃  ┃  ┗━ 📂 metadata/
+       ┃  ┃     ┣━ 📜 formatHelper.js
+       ┃  ┃     ┣━ 📜 keyRotator.js
+       ┃  ┃     ┣━ 📜 requestHandler.js
+       ┃  ┃     ┗━ 📜 responseParser.js
+       ┃  ┣━ 📂 utils/
+       ┃  ┃  ┣━ 📜 ensureOutputDir.js
+       ┃  ┃  ┣━ 📜 epsMetadata.js
+       ┃  ┃  ┣━ 📜 exif.utils.js
+       ┃  ┃  ┣━ 📜 getMimeType.js
+       ┃  ┃  ┣━ 📜 imageUtils.js
+       ┃  ┃  ┣━ 📜 validateGsPath.js
+       ┃  ┃  ┣━ 📜 videoCompression.js
+       ┃  ┃  ┗━ 📂 image/
+       ┃  ┃     ┣━ 📜 index.js
+       ┃  ┃     ┣━ 📜 backgroundManager.js
+       ┃  ┃     ┣━ 📜 epsConverter.js
+       ┃  ┃     ┣━ 📜 resizeUtils.js
+       ┃  ┃     ┗━ 📜 svgConverter.js
+       ┃  ┗━ 📂 video/
+       ┃     ┣━ 📜 processVideo.js
+       ┃     ┣━ 📜 videoUtils.js
+       ┃     ┗━ 📂 processVideo/
+       ┃        ┣━ 📜 index.js
+       ┃        ┗━ 📜 videoGeminiRetry.js
+       ┣━ 📂 renderer/                # ── Frontend UI ──
+       ┃  ┣━ 📜 index.html            # Main HTML shell
+       ┃  ┣━ 📂 assets/
+       ┃  ┃  ┣━ 📂 icons/
+       ┃  ┃  ┃  ┣━ 📜 123rf.svg
+       ┃  ┃  ┃  ┣━ 📜 adobe-stock.svg
+       ┃  ┃  ┃  ┣━ 📜 dreamstime.svg
+       ┃  ┃  ┃  ┣━ 📜 freepik.svg
+       ┃  ┃  ┃  ┣━ 📜 general.svg
+       ┃  ┃  ┃  ┣━ 📜 google.svg
+       ┃  ┃  ┃  ┣━ 📜 icon.ico
+       ┃  ┃  ┃  ┣━ 📜 icon.ico.backup
+       ┃  ┃  ┃  ┣━ 📜 icon.png
+       ┃  ┃  ┃  ┣━ 📜 istock.svg
+       ┃  ┃  ┃  ┣━ 📜 pond5.webp
+       ┃  ┃  ┃  ┣━ 📜 shutterstock.svg
+       ┃  ┃  ┃  ┗━ 📜 Vecteezy.png
+       ┃  ┃  ┗━ 📂 images/
+       ┃  ┃     ┣━ 📜 error-placeholder.png
+       ┃  ┃     ┗━ 📜 gs-download.png
+       ┃  ┣━ 📂 css/                  # ~61 stylesheets
+       ┃  ┃  ┣━ 📜 alerts.css
+       ┃  ┃  ┣━ 📜 animations.css
+       ┃  ┃  ┣━ 📜 api-keys.css
+       ┃  ┃  ┣━ 📜 api-key-styles.css
+       ┃  ┃  ┣━ 📜 api-key-tabs.css
+       ┃  ┃  ┣━ 📜 base.css
+       ┃  ┃  ┣━ 📜 buttons.css
+       ┃  ┃  ┣━ 📜 checkbox.css
+       ┃  ┃  ┣━ 📜 csv-markets.css
+       ┃  ┃  ┣━ 📜 dark-light.css
+       ┃  ┃  ┣━ 📜 dialog.css
+       ┃  ┃  ┣━ 📜 dialog-animations.css
+       ┃  ┃  ┣━ 📜 dialog-base.css
+       ┃  ┃  ┣━ 📜 dialog-buttons.css
+       ┃  ┃  ┣━ 📜 dialog-layout.css
+       ┃  ┃  ┣━ 📜 dialog-responsive.css
+       ┃  ┃  ┣━ 📜 dialog-utilities.css
+       ┃  ┃  ┣━ 📜 docs-panel.css
+       ┃  ┃  ┣━ 📜 drag-drop.css
+       ┃  ┃  ┣━ 📜 dropdowns.css
+       ┃  ┃  ┣━ 📜 file-preview.css
+       ┃  ┃  ┣━ 📜 forms.css
+       ┃  ┃  ┣━ 📜 form-tabs.css
+       ┃  ┃  ┣━ 📜 ghostscript.css
+       ┃  ┃  ┣━ 📜 initial-state.css
+       ┃  ┃  ┣━ 📜 inputs.css
+       ┃  ┃  ┣━ 📜 keyword-styles.css
+       ┃  ┃  ┣━ 📜 keyword-tabs.css
+       ┃  ┃  ┣━ 📜 login-dialog.css
+       ┃  ┃  ┣━ 📜 login-form.css
+       ┃  ┃  ┣━ 📜 main-layout.css
+       ┃  ┃  ┣━ 📜 navbar.css
+       ┃  ┃  ┣━ 📜 pricing-badges.css
+       ┃  ┃  ┣━ 📜 pricing-dialog.css
+       ┃  ┃  ┣━ 📜 pricing-plan-actions.css
+       ┃  ┃  ┣━ 📜 pricing-plan-card.css
+       ┃  ┃  ┣━ 📜 pricing-tabs.css
+       ┃  ┃  ┣━ 📜 profile.css
+       ┃  ┃  ┣━ 📜 progress.css
+       ┃  ┃  ┣━ 📜 radio.css
+       ┃  ┃  ┣━ 📜 release-notes.css
+       ┃  ┃  ┣━ 📜 responsive.css
+       ┃  ┃  ┣━ 📜 results.css
+       ┃  ┃  ┣━ 📜 scrollbar.css
+       ┃  ┃  ┣━ 📜 scrollbars.css
+       ┃  ┃  ┣━ 📜 settings.css
+       ┃  ┃  ┣━ 📜 settings-sync.css
+       ┃  ┃  ┣━ 📜 status-bar.css
+       ┃  ┃  ┣━ 📜 styles.css
+       ┃  ┃  ┣━ 📜 summary.css
+       ┃  ┃  ┣━ 📜 toast.css
+       ┃  ┃  ┣━ 📜 toggles.css
+       ┃  ┃  ┣━ 📜 update-dialog.css
+       ┃  ┃  ┣━ 📜 update-popup.css
+       ┃  ┃  ┣━ 📜 utilities.css
+       ┃  ┃  ┗━ 📜 variables.css
+       ┃  ┣━ 📂 html/                 # HTML partials (nested)
+       ┃  ┃  ┣━ 📂 components/
+       ┃  ┃  ┃  ┣━ 📜 navbar.html
+       ┃  ┃  ┃  ┣━ 📜 profile-dropdown.html
+       ┃  ┃  ┃  ┣━ 📜 progress-panel.html
+       ┃  ┃  ┃  ┣━ 📜 results-panel.html
+       ┃  ┃  ┃  ┗━ 📜 status-bar.html
+       ┃  ┃  ┣━ 📂 modals/
+       ┃  ┃  ┃  ┣━ 📜 api-key-modal.html
+       ┃  ┃  ┃  ┣━ 📜 api-validation-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 bulk-edit-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 docs-panel.html
+       ┃  ┃  ┃  ┣━ 📜 gs-manual-install-modal.html
+       ┃  ┃  ┃  ┣━ 📜 help-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 login-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 rename-files-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 settings-123rf-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 settings-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 settings-istock-dialog.html
+       ┃  ┃  ┃  ┣━ 📜 settings-pond5-dialog.html
+       ┃  ┃  ┃  ┗━ 📜 update-dialog.html
+       ┃  ┃  ┣━ 📂 partials/
+       ┃  ┃  ┃  ┣━ 📜 api-key-banner.html
+       ┃  ┃  ┃  ┣━ 📜 drag-drop-overlay.html
+       ┃  ┃  ┃  ┣━ 📜 settings-advanced-section.html
+       ┃  ┃  ┃  ┣━ 📜 settings-ai-section.html
+       ┃  ┃  ┃  ┣━ 📜 settings-appearance-section.html
+       ┃  ┃  ┃  ┣━ 📜 settings-csv-section.html
+       ┃  ┃  ┃  ┗━ 📜 settings-system-section.html
+       ┃  ┃  ┗━ 📂 sections/
+       ┃  ┃     ┗━ 📜 initial-state.html
+       ┃  ┗━ 📂 js/                   # Renderer JavaScript
+       ┃     ┣━ 📜 script.js                 # Main (8,288 lines)
+       ┃     ┣━ 📜 api-key-manager.js
+       ┃     ┣━ 📜 custom-dropdown.js
+       ┃     ┣━ 📜 ghostscript-installer.js
+       ┃     ┣━ 📜 html-loader.js
+       ┃     ┣━ 📜 important-notes.js
+       ┃     ┗━ 📜 settings-sync.js
+       ┣━ 📂 resource/                # ── Duplicate resource dir ──
+       ┃  ┣━ 📂 css/
+       ┃  ┃  ┣━ 📜 api-key-styles.css
+       ┃  ┃  ┣━ 📜 keyword-styles.css
+       ┃  ┃  ┣━ 📜 settings-sync.css
+       ┃  ┃  ┣━ 📜 styles.css
+       ┃  ┃  ┗━ 📂 styles/
+       ┃  ┃     ┣━ 📂 animations/animations.css
+       ┃  ┃     ┣━ 📂 base/base.css
+       ┃  ┃     ┣━ 📂 components/ (buttons, csv-markets, docs-panel,
+       ┃  ┃     ┃                drag-drop, dropdowns, file-preview,
+       ┃  ┃     ┃                forms, progress, toast, toggles)
+       ┃  ┃     ┣━ 📂 dialog/ (animations, base, components,
+       ┃  ┃     ┃             index.css, layout, responsive, utilities)
+       ┃  ┃     ┣━ 📂 layouts/ (main-layout, navbar, status-bar)
+       ┃  ┃     ┣━ 📂 responsive/responsive.css
+       ┃  ┃     ┣━ 📂 sections/ (api-keys, ghostscript, initial-state,
+       ┃  ┃     ┃              results, settings, summary)
+       ┃  ┃     ┣━ 📂 themes/dark-light.css
+       ┃  ┃     ┣━ 📂 utilities/ (scrollbars, utilities)
+       ┃  ┃     ┗━ 📂 variables/variables.css
+       ┃  ┣━ 📂 images/
+       ┃  ┃  ┣━ 📜 error-placeholder.png
+       ┃  ┃  ┣━ 📜 gs-download.png
+       ┃  ┃  ┗━ 📂 icons/ (9 platform icons)
+       ┃  ┗━ 📂 js/
+       ┃     ┣━ 📜 script.js
+       ┃     ┣━ 📜 api-key-manager.js
+       ┃     ┣━ 📜 custom-dropdown.js
+       ┃     ┣━ 📜 ghostscript-installer.js
+       ┃     ┣━ 📜 important-notes.js
+       ┃     ┗━ 📜 settings-sync.js
+       ┣━ 📂 sections/
+       ┃  ┗━ 📜 initial-state.html
+       ┣━ 📂 services/                # ── API services ──
+       ┃  ┣━ 📜 authService.js
+       ┃  ┣━ 📜 startupService.js
+       ┃  ┣━ 📜 subscriptionService.js
+       ┃  ┣━ 📜 updateService.js
+       ┃  ┣━ 📂 authService/
+       ┃  ┃  ┣━ 📜 index.js
+       ┃  ┃  ┣━ 📜 apiClient.js
+       ┃  ┃  ┗━ 📜 login.js
+       ┃  ┗━ 📂 guestAuthService/
+       ┃     ┣━ 📜 index.js
+       ┃     ┣━ 📜 session.js
+       ┃     ┗━ 📜 store.js
+       ┣━ 📂 shared/                  # ── Shared constants ──
+       ┃  ┣━ 📂 constants/
+       ┃  ┃  ┗━ 📜 formats.js
+       ┃  ┗━ 📂 helpers/
+       ┃     ┣━ 📜 csv-generators.js
+       ┃     ┣━ 📜 csvGenerators.js
+       ┃     ┣━ 📜 json-helpers.js
+       ┃     ┣━ 📜 jsonHelpers.js
+       ┃     ┣━ 📜 mask-utils.js
+       ┃     ┗━ 📜 maskUtils.js
+       ┗━ 📂 utils/                   # ── Utilities ──
+          ┣━ 📜 apiKeyTracker.js
+          ┣━ 📜 cleanup.js
+          ┣━ 📜 debug.js
+          ┣━ 📜 ghostscriptInstaller.js
+          ┣━ 📜 html-loader.js
+          ┣━ 📜 logStartup.js
+          ┣━ 📜 protocolHandler.js
+          ┣━ 📜 videoUtils.js
+          ┗━ 📂 apiKeyTracker/
+             ┣━ 📜 index.js
+             ┣━ 📜 distribution.js
+             ┣━ 📜 mask.js
+             ┣━ 📜 models.js
+             ┣━ 📜 stats.js
+             ┗━ 📜 storage.js
 ```
 
 <br/>
