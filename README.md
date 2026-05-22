@@ -253,6 +253,11 @@ npm start
 
 ## 📁 Project Structure
 
+<details>
+<summary><b>Click to expand</b> — full project tree with every file</summary>
+
+<br/>
+
 ```
 📦 GEN-META-CR-BY_LAZIM
  ┣━ 📜 .gitignore
@@ -718,6 +723,8 @@ npm start
              ┣━ 📜 stats.js
              ┗━ 📜 storage.js
 ```
+
+</details>
 
 <br/>
 
