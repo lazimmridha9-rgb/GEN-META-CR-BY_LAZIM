@@ -107,7 +107,7 @@ function createMainWindow() {
     y: validWindowState.y,
     frame: true,
     show: false,
-    title: 'GenMeta',
+    title: `GenMeta v${app.getVersion()}`,
     icon: path.join(__dirname, '..', 'renderer', 'assets', 'icons', 'icon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),

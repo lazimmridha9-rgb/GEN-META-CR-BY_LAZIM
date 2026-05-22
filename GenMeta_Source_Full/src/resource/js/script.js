@@ -1294,6 +1294,7 @@ async function initApp() {
 
     try {
       const version = await window.electronAPI.app.getVersion();
+      document.title = `GenMeta v${version}`;
       const versionElement = document.getElementById("app-version");
       if (versionElement) {
         versionElement.textContent = version;
