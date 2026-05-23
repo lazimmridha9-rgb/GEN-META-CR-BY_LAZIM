@@ -1164,7 +1164,7 @@ async function initApp() {
         if (guestInfo) {
           updateProfileDropdownForGuest({
             guestName: guestInfo.guestName || "Guest User",
-            guestEmail: guestInfo.guestEmail || "guest@genmeta.local",
+            guestEmail: guestInfo.guestEmail || "guest@genmeta.com",
             planType: "Premium",
             credits: "Unlimited",
             isUnlimited: true,
@@ -1278,7 +1278,7 @@ async function initApp() {
             // Update profile dropdown for guest user - full premium access
             updateProfileDropdownForGuest({
               guestName: data.username || "Guest User",
-              guestEmail: "guest@genmeta.local",
+              guestEmail: "guest@genmeta.com",
               planType: "Premium",
               credits: "Unlimited",
               isUnlimited: true,
@@ -7463,7 +7463,7 @@ function updateProfileDropdownForGuest(guestData) {
   }
 
   if (elements.profileEmail) {
-    elements.profileEmail.textContent = guestData.guestEmail || "guest@genmeta.local";
+    elements.profileEmail.textContent = guestData.guestEmail || "guest@genmeta.com";
   }
 
   // Show Premium plan for guest (full access)

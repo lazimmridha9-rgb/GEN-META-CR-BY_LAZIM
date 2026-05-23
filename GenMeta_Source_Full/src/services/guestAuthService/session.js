@@ -33,7 +33,7 @@ function generateGuestName() {
 function createGuestSession() {
   const guestId = generateGuestId();
   const guestName = generateGuestName();
-  const guestEmail = `${guestId}@guest.genmeta.local`;
+  const guestEmail = `${guestName.toLowerCase().replace(/\s+/g, '.')}@genmeta.com`;
   const loginTime = new Date().toISOString();
 
   const guestData = {
